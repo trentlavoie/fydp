@@ -22,15 +22,15 @@ module.exports = {
         ]
     },
 
-    watch: true,
-
     output: {
-        path: path.join(__dirname, 'src', 'static'),
+        publicPath: 'http://localhost:2992/assets/',
         filename: 'app.min.js'
     },
     resolve: {
         extensions: ['.js', '.css']
     },
+
+    watch: true,
 
     module: {
         loaders: [ babelLoader ]

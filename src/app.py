@@ -29,7 +29,7 @@ webpack.init_app(app)
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def index(path):
-    return render_template('index.html')
+    return render_template('index.jinja2')
 
 if __name__ == '__main__':
-    run_simple('localhost', 3000, app, use_reloader=True, use_debugger=True)
+    run_simple('localhost', 3001, app, use_reloader=True, use_debugger=True)
