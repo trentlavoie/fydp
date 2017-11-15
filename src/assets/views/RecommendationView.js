@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import RaisedButton from 'material-ui/RaisedButton';
+import Geosuggest from 'react-geosuggest';
 
 const backgroundStyle = {
   height: '800px',
@@ -15,7 +16,14 @@ export default class RecommendationView extends React.Component {
     constructor() {
       super();
       this.state = {
-        currentStep: 0
+        currentStep: 0,
+        location: ''
+      }
+
+      this.onLocationSelect = (suggest) => {
+        if (suggest && suggest.description) {
+          this.setState({location: suggest.description})
+        }
       }
     }
 
@@ -24,7 +32,7 @@ export default class RecommendationView extends React.Component {
       if (this.state.currentStep === 0) {
         return (
           <div style = {{height: '50%', textAlign: 'center'}}> 
-            Current Step
+            <Geosuggest onSuggestSelect={this.onLocationSelect} initialValue={this.state.location}/>
           </div>
         )
       } else if (this.state.currentStep === 1) {

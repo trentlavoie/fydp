@@ -13,6 +13,7 @@
     "moment": "^2.18.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-geosuggest": "^2.6.0",
     "react-http-request": "^1.0.3",
     "react-router": "~3.0.2",
     "react-slick": "^0.15.4",
