@@ -189,9 +189,9 @@ export default class RecommendationView extends React.Component {
         return (
           <div style = {centerContainer} > 
           <div style = {{marginTop: '-200px'}}>
-            <FontIcon className="material-icons" style = {{fontSize: '80px'}}>shopping_cart</FontIcon>
+            <FontIcon className="material-icons" style = {{fontSize: '80px'}}>person_pin</FontIcon>
             <div>
-              <span style=  {headerFont}>Preference Selections</span>
+              <span style=  {headerFont}>Preference Selections - Select any preferences (Click twice for importance)</span>
             </div>
           </div>
           <ReactBubbleChart
