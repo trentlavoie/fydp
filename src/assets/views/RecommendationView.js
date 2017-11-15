@@ -4,6 +4,16 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Geosuggest from 'react-geosuggest';
 import FontIcon from 'material-ui/FontIcon';
 import Slider from 'material-ui/Slider';
+import ReactBubbleChart from 'react-bubble-chart';
+
+var colorLegend = [
+  //reds from dark to light
+  {color: "#67000d", text: 'Negative', textColor: "#ffffff"}, "#a50f15", "#cb181d", "#ef3b2c", "#fb6a4a", "#fc9272", "#fcbba1", "#fee0d2",
+  //neutral grey
+  {color: "#f0f0f0", text: 'Neutral'},
+  // blues from light to dark
+  "#deebf7", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#08519c", {color: "#08306b", text: 'Positive', textColor: "#ffffff"}
+];
 
 const backgroundStyle = {
   height: '800px',
@@ -35,9 +45,10 @@ export default class RecommendationView extends React.Component {
     constructor() {
       super();
       this.state = {
-        currentStep: 0,
+        currentStep: 2,
         location: '',
-        budgetAmount: 5000
+        budgetAmount: 5000,
+        g: null
       }
 
       this.onLocationSelect = (suggest) => {
@@ -62,6 +73,10 @@ export default class RecommendationView extends React.Component {
         }
 
         return prettiedAmmount;
+      }
+
+      this.buttonClick = (data) => {
+        console.log(data);
       }
     }
 
@@ -95,7 +110,50 @@ export default class RecommendationView extends React.Component {
             <span style = {captionFont}>Your current selected amount in $: {this.prettyAmount()}</span>
           </div>
         )
+      } else if (this.state.currentStep === 2) {
+
+        var data = [
+          {
+            _id: 'Handling',
+            value: 1,
+            colorValue: -1,
+            selected: false
+          },
+          {
+            _id: 'Cost',
+            value: 1,
+            colorValue: 'white',
+            selected: false
+          },
+          {
+            _id: 'Fuel Efficiency',
+            value: 1,
+            colorValue: 'white',
+            selected: true
+          },
+          {
+            _id: 'Comfort',
+            value: 1,
+            colorValue: 'white',
+            selected: true
+          }
+        ]
+
+        return (
+          <div style = {centerContainer} > 
+          <ReactBubbleChart
+            data={data}
+            colorLegend={colorLegend}
+            selectedColor="black"
+            legend={false}
+            fixedDomain={{min: -1, max: 1}}
+            selectedTextColor="white"
+            onClick={this.buttonClick}
+          />;
+          </div>
+        )
       }
+
     }
 
     render() {
@@ -104,7 +162,7 @@ export default class RecommendationView extends React.Component {
           <div>
             <Navbar/>
             <div style = {backgroundStyle}>
-              <div style = {{alignSelf: 'center', width: '800px', height: '300px'}}>
+              <div style = {{alignSelf: 'center', width: '800px', height: '300px'}} id = "chart">
                 {this.renderCurrentStep()}
                 <div style = {{float: 'left'}}>
                     <RaisedButton label="Back" disabled={this.state.currentStep === 0} secondary={true} onClick = {() => {this.setState({currentStep: this.state.currentStep - 1})}}/>

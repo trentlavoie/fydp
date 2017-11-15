@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "css-loader": "^0.14.4",
+    "d3": "^3.5.17",
     "extract-text-webpack-plugin": "^0.8.1",
     "extract-text-webpack-plugin-webpack-2": "^1.0.1",
     "image-webpack-loader": "^1.4.0",
@@ -12,6 +13,7 @@
     "material-ui": "^0.17.1",
     "moment": "^2.18.1",
     "react": "^15.4.2",
+    "react-bubble-chart": "^0.4.0",
     "react-dom": "^15.4.2",
     "react-geosuggest": "^2.6.0",
     "react-http-request": "^1.0.3",
