@@ -5,6 +5,7 @@ import Geosuggest from 'react-geosuggest';
 import FontIcon from 'material-ui/FontIcon';
 import Slider from 'material-ui/Slider';
 import ReactBubbleChart from 'react-bubble-chart';
+import _ from 'lodash';
 
 var colorLegend = [
   //reds from dark to light
@@ -48,7 +49,33 @@ export default class RecommendationView extends React.Component {
         currentStep: 2,
         location: '',
         budgetAmount: 5000,
-        g: null
+        preferences: [
+          {
+            _id: 'Handling',
+            value: 1,
+            colorValue: -1,
+            selected: false,
+            clicked: 0
+          },
+          {
+            _id: 'Cost',
+            value: 1,
+            colorValue: -1,
+            selected: false
+          },
+          {
+            _id: 'Fuel Efficiency',
+            value: 1,
+            colorValue: -1,
+            selected: false
+          },
+          {
+            _id: 'Comfort',
+            value: 1,
+            colorValue: -1,
+            selected: false
+          }
+        ]
       }
 
       this.onLocationSelect = (suggest) => {
@@ -76,7 +103,22 @@ export default class RecommendationView extends React.Component {
       }
 
       this.buttonClick = (data) => {
-        console.log(data);
+
+        let newPrefenceArr = _.cloneDeep(this.state.preferences)
+
+        newPrefenceArr.forEach((preference) => {
+          if (preference._id === data._id && preference.clicked < 2) {
+            preference.clicked ++;
+            preference.value = preference.value * 2;
+            preference.selected = true;
+          } else {
+            preference.clicked = 0;
+            preference.value = 1;
+            preference.selected = false;
+          }
+        })
+
+        this.setState({preferences: newPrefenceArr})
       }
     }
 
@@ -112,44 +154,17 @@ export default class RecommendationView extends React.Component {
         )
       } else if (this.state.currentStep === 2) {
 
-        var data = [
-          {
-            _id: 'Handling',
-            value: 1,
-            colorValue: -1,
-            selected: false
-          },
-          {
-            _id: 'Cost',
-            value: 1,
-            colorValue: 'white',
-            selected: false
-          },
-          {
-            _id: 'Fuel Efficiency',
-            value: 1,
-            colorValue: 'white',
-            selected: true
-          },
-          {
-            _id: 'Comfort',
-            value: 1,
-            colorValue: 'white',
-            selected: true
-          }
-        ]
-
         return (
           <div style = {centerContainer} > 
           <ReactBubbleChart
-            data={data}
+            data={this.state.preferences}
             colorLegend={colorLegend}
             selectedColor="black"
             legend={false}
             fixedDomain={{min: -1, max: 1}}
             selectedTextColor="white"
             onClick={this.buttonClick}
-          />;
+          />
           </div>
         )
       }

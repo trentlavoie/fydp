@@ -9,6 +9,7 @@
     "extract-text-webpack-plugin": "^0.8.1",
     "extract-text-webpack-plugin-webpack-2": "^1.0.1",
     "image-webpack-loader": "^1.4.0",
+    "lodash": "^4.17.4",
     "manifest-revision-webpack-plugin": "^0.0.5",
     "material-ui": "^0.17.1",
     "moment": "^2.18.1",
