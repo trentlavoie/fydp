@@ -7,11 +7,7 @@ import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import FontIcon from 'material-ui/FontIcon';
 
-export default class Home extends React.Component {
-
-    constructor() {
-    	super()
-    }
+export default class Navbar extends React.Component {
 
     render() {
         return (

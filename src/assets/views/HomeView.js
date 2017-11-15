@@ -16,20 +16,20 @@ const backgroundStyle = {
 
 export default class Home extends React.Component {
 
-    constructor() {
-    	super()
-    }
-
     render() {
         return (
           <div>
             <Navbar/>
             <div style = {backgroundStyle}>
               <div style = {{alignSelf: 'center'}}>
-                <RaisedButton label="Click here to get started with your recommendation" secondary={true} style={style} />
+                <RaisedButton label="Click here to get started with your recommendation" secondary={true} style={style} onClick={()=>{this.context.router.push('/recommend');}}/>
               </div>
             </div>
           </div>
         )
     }
+}
+
+Home.contextTypes = {
+    router: React.PropTypes.object.isRequired
 }
