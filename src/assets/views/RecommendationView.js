@@ -52,26 +52,56 @@ export default class RecommendationView extends React.Component {
         preferences: [
           {
             _id: 'Handling',
-            value: 1,
+            value: 5,
             colorValue: -1,
             selected: false,
             clicked: 0
           },
           {
             _id: 'Cost',
-            value: 1,
+            value: 5,
             colorValue: -1,
             selected: false
           },
           {
             _id: 'Fuel Efficiency',
-            value: 1,
+            value: 5,
             colorValue: -1,
             selected: false
           },
           {
             _id: 'Comfort',
-            value: 1,
+            value: 5,
+            colorValue: -1,
+            selected: false
+          },
+          {
+            _id: 'Brand',
+            value: 5,
+            colorValue: -1,
+            selected: false
+          },
+          {
+            _id: 'Off-Roading',
+            value: 5,
+            colorValue: -1,
+            selected: false
+          },
+          {
+            _id: 'Resale Value',
+            value: 5,
+            colorValue: -1,
+            selected: false
+          },
+          {
+            _id: 'Safety',
+            value: 5,
+            colorValue: -1,
+            selected: false
+          },
+          {
+            _id: 'Performance',
+            value: 5,
             colorValue: -1,
             selected: false
           }
@@ -107,14 +137,16 @@ export default class RecommendationView extends React.Component {
         let newPrefenceArr = _.cloneDeep(this.state.preferences)
 
         newPrefenceArr.forEach((preference) => {
-          if (preference._id === data._id && preference.clicked < 2) {
-            preference.clicked ++;
-            preference.value = preference.value * 2;
-            preference.selected = true;
-          } else {
-            preference.clicked = 0;
-            preference.value = 1;
-            preference.selected = false;
+          if (preference._id === data._id) {
+            if (preference.clicked < 2) {
+              preference.clicked ++;
+              preference.value = preference.value * 1.2;
+              preference.selected = true;
+            } else {
+              preference.clicked = 0;
+              preference.value = 5;
+              preference.selected = false;
+            }
           }
         })
 
@@ -156,6 +188,12 @@ export default class RecommendationView extends React.Component {
 
         return (
           <div style = {centerContainer} > 
+          <div style = {{marginTop: '-200px'}}>
+            <FontIcon className="material-icons" style = {{fontSize: '80px'}}>shopping_cart</FontIcon>
+            <div>
+              <span style=  {headerFont}>Preference Selections</span>
+            </div>
+          </div>
           <ReactBubbleChart
             data={this.state.preferences}
             colorLegend={colorLegend}
@@ -163,6 +201,7 @@ export default class RecommendationView extends React.Component {
             legend={false}
             fixedDomain={{min: -1, max: 1}}
             selectedTextColor="white"
+            fontSizeFactor={0.3}
             onClick={this.buttonClick}
           />
           </div>
@@ -177,7 +216,7 @@ export default class RecommendationView extends React.Component {
           <div>
             <Navbar/>
             <div style = {backgroundStyle}>
-              <div style = {{alignSelf: 'center', width: '800px', height: '300px'}} id = "chart">
+              <div style = {{alignSelf: 'center', width: '800px', height: '300px'}} >
                 {this.renderCurrentStep()}
                 <div style = {{float: 'left'}}>
                     <RaisedButton label="Back" disabled={this.state.currentStep === 0} secondary={true} onClick = {() => {this.setState({currentStep: this.state.currentStep - 1})}}/>

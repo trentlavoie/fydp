@@ -1,6 +1,8 @@
 /* Center the contents of the bubble chart */
 .bubble-chart-container {
   flex: 1;
+  margin-top: -5px;
+  height: 350px;
   position: relative;
   display: flex;
   user-select: none;
