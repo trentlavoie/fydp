@@ -55,10 +55,11 @@ export default class RecommendationView extends React.Component {
     constructor() {
       super();
       this.state = {
-        currentStep: 3,
+        currentStep: 4,
         location: '',
         budgetAmount: 5000,
         selectedCarType: 0,
+        file: null,
         preferences: [
           {
             _id: 'Handling',
@@ -172,6 +173,14 @@ export default class RecommendationView extends React.Component {
           }
         }
       }
+
+      this.openFileDialog = () => {
+        this.refs.fileUpload.click();
+      }
+
+      this.handleFileChange = (evt) => {
+        this.setState({file: this.refs.fileUpload.files[0]})
+      }
     }
 
     renderCurrentStep() {
@@ -284,8 +293,33 @@ export default class RecommendationView extends React.Component {
             </Paper>
           </div>
         )
-      }
+      } else if (this.state.currentStep === 4) {
+        return (
+          <div style = {centerContainer}> 
+            <FontIcon className="material-icons" style = {{fontSize: '80px'}}>file_upload</FontIcon>
+            <div>
+              <span style=  {headerFont}>Upload drive cycle data (Optional)</span>
+            </div>
+            <div style = {{paddingTop: '30px'}}>
+              <RaisedButton label="Upload Here" primary={true} onClick={this.openFileDialog}>
+              <input
+                  ref="fileUpload"
+                  type="file"
+                  style={{"display" : "none"}}
+                  onChange={this.handleFileChange}
+              />
+              </RaisedButton>
 
+              {
+                this.state.file && this.state.file.name &&
+                <div style = {{paddingTop: '20px'}}>
+                  <span style= {progressFont}>You are uploading: {this.state.file.name}</span>
+                </div>
+              }
+            </div>
+          </div>
+        )
+      }
     }
 
     render() {
