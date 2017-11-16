@@ -181,10 +181,15 @@ export default class RecommendationView extends React.Component {
       this.handleFileChange = (evt) => {
         this.setState({file: this.refs.fileUpload.files[0]})
       }
+
+      this.incrementStepCounter = () => {
+        if (this.state.currentStep !== 4 ) {
+          this.setState({currentStep: this.state.currentStep + 1})
+        }
+      }
     }
 
     renderCurrentStep() {
-
       if (this.state.currentStep === 0) {
         return (
           <div style = {centerContainer}> 
@@ -334,11 +339,11 @@ export default class RecommendationView extends React.Component {
                     <RaisedButton label="Back" disabled={this.state.currentStep === 0} secondary={true} onClick = {() => {this.setState({currentStep: this.state.currentStep - 1})}}/>
                 </div>
                 <div style = {{float: 'right'}}>
-                  <RaisedButton label="Next Step" secondary={true} onClick = {() => {this.setState({currentStep: this.state.currentStep + 1})}}/>
+                  <RaisedButton label={this.state.currentStep !== 4 ? 'Next Step' : 'Finish'} secondary={true} onClick = {this.incrementStepCounter}/>
                 </div>
                 <div style = {{paddingTop: '100px', textAlign: 'center'}}>
                   <LinearProgress mode="determinate" value={this.state.currentStep * 15} />
-                  <span style = {progressFont} >Step {this.state.currentStep + 1} out of 7 completed</span>
+                  <span style = {progressFont} >Step {this.state.currentStep + 1} out of 5 completed</span>
                 </div>
               </div>
             </div>
