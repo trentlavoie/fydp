@@ -233,42 +233,54 @@ export default class RecommendationView extends React.Component {
           width: 100,
           margin: 20,
           textAlign: 'center',
-          display: 'inline-block'
+          display: 'inline-block',
+          position: 'relative'
         };
 
         var image = 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX19511256.jpg';
 
-        var paperStyle = {
+        var divStyle = {
           height: 100,
           width: 100,
           margin: 20,
           textAlign: 'center',
           cursor: 'pointer',
-          display: 'block'
+          display: 'block',
+          position: 'absolute',
+          left: -20,
+          top: -20
         }
 
         return (
           <div style = {centerContainer} > 
-            <FontIcon className="material-icons" style = {{fontSize: '80px', top: '-100px'}}>shopping_cart</FontIcon>
+            <FontIcon className="material-icons" style = {{fontSize: '80px', top: '-100px'}}>motorcycle</FontIcon>
             <div style = {{marginTop: '-100px'}}>
               <span style=  {headerFont}>Car Type</span>
             </div>
             <Paper style={style} zDepth={this.state.selectedCarType === 1 ? 5 : 1}>
-              <div id="1" style = {paperStyle} onClick={this.carTypeClicked}>
-                Sedan
+              <div id="1" style = {divStyle} onClick={this.carTypeClicked}>
+                <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType === 2 ? 5 : 1}>
-              <div id="2" style = {paperStyle} onClick={this.carTypeClicked}></div>
+              <div id="2" style = {divStyle} onClick={this.carTypeClicked}>
+                <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+              </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType === 3 ? 5 : 1}>
-              <div id="3" style = {paperStyle} onClick={this.carTypeClicked}></div>
+              <div id="3" style = {divStyle} onClick={this.carTypeClicked}>
+                <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+              </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType === 4 ? 5 : 1}>
-              <div id="4" style = {paperStyle} onClick={this.carTypeClicked}></div>
+              <div id="4" style = {divStyle} onClick={this.carTypeClicked}>
+                <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+              </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType === 5 ? 5 : 1}>
-              <div id="5" style = {paperStyle} onClick={this.carTypeClicked}></div>
+              <div id="5" style = {divStyle} onClick={this.carTypeClicked}>
+                <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+              </div>
             </Paper>
           </div>
         )
