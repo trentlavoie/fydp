@@ -5,6 +5,8 @@ import Geosuggest from 'react-geosuggest';
 import FontIcon from 'material-ui/FontIcon';
 import Slider from 'material-ui/Slider';
 import ReactBubbleChart from 'react-bubble-chart';
+import LinearProgress from 'material-ui/LinearProgress';
+import Paper from 'material-ui/Paper';
 import _ from 'lodash';
 
 var colorLegend = [
@@ -35,6 +37,13 @@ const headerFont = {
   color: 'teal'
 }
 
+const progressFont = {
+  fontFamily: 'Futura',
+  fontSize: '20px',
+  color: 'teal',
+  paddingTop: '50px'
+}
+
 const captionFont = {
   fontFamily: 'Futura',
   fontSize: '15px',
@@ -46,9 +55,10 @@ export default class RecommendationView extends React.Component {
     constructor() {
       super();
       this.state = {
-        currentStep: 2,
+        currentStep: 3,
         location: '',
         budgetAmount: 5000,
+        selectedCarType: 0,
         preferences: [
           {
             _id: 'Handling',
@@ -152,6 +162,16 @@ export default class RecommendationView extends React.Component {
 
         this.setState({preferences: newPrefenceArr})
       }
+
+      this.carTypeClicked = (evt) => {
+        if (evt && evt.currentTarget) {
+          if (parseInt(evt.currentTarget.id) === this.state.selectedCarType) {
+            this.setState({selectedCarType: 0})
+          } else {
+            this.setState({selectedCarType: parseInt(evt.currentTarget.id)})
+          }
+        }
+      }
     }
 
     renderCurrentStep() {
@@ -206,6 +226,52 @@ export default class RecommendationView extends React.Component {
           />
           </div>
         )
+      } else if (this.state.currentStep === 3) {
+
+        const style = {
+          height: 100,
+          width: 100,
+          margin: 20,
+          textAlign: 'center',
+          display: 'inline-block'
+        };
+
+        var image = 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX19511256.jpg';
+
+        var paperStyle = {
+          height: 100,
+          width: 100,
+          margin: 20,
+          textAlign: 'center',
+          cursor: 'pointer',
+          display: 'block'
+        }
+
+        return (
+          <div style = {centerContainer} > 
+            <FontIcon className="material-icons" style = {{fontSize: '80px', top: '-100px'}}>shopping_cart</FontIcon>
+            <div style = {{marginTop: '-100px'}}>
+              <span style=  {headerFont}>Car Type</span>
+            </div>
+            <Paper style={style} zDepth={this.state.selectedCarType === 1 ? 5 : 1}>
+              <div id="1" style = {paperStyle} onClick={this.carTypeClicked}>
+                Sedan
+              </div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedCarType === 2 ? 5 : 1}>
+              <div id="2" style = {paperStyle} onClick={this.carTypeClicked}></div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedCarType === 3 ? 5 : 1}>
+              <div id="3" style = {paperStyle} onClick={this.carTypeClicked}></div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedCarType === 4 ? 5 : 1}>
+              <div id="4" style = {paperStyle} onClick={this.carTypeClicked}></div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedCarType === 5 ? 5 : 1}>
+              <div id="5" style = {paperStyle} onClick={this.carTypeClicked}></div>
+            </Paper>
+          </div>
+        )
       }
 
     }
@@ -216,13 +282,17 @@ export default class RecommendationView extends React.Component {
           <div>
             <Navbar/>
             <div style = {backgroundStyle}>
-              <div style = {{alignSelf: 'center', width: '800px', height: '300px'}} >
+              <div style = {{alignSelf: 'center', width: '1000px', height: '300px'}} >
                 {this.renderCurrentStep()}
                 <div style = {{float: 'left'}}>
                     <RaisedButton label="Back" disabled={this.state.currentStep === 0} secondary={true} onClick = {() => {this.setState({currentStep: this.state.currentStep - 1})}}/>
                 </div>
                 <div style = {{float: 'right'}}>
                   <RaisedButton label="Next Step" secondary={true} onClick = {() => {this.setState({currentStep: this.state.currentStep + 1})}}/>
+                </div>
+                <div style = {{paddingTop: '100px', textAlign: 'center'}}>
+                  <LinearProgress mode="determinate" value={this.state.currentStep * 15} />
+                  <span style = {progressFont} >Step {this.state.currentStep + 1} out of 7 completed</span>
                 </div>
               </div>
             </div>
