@@ -342,7 +342,7 @@ export default class RecommendationView extends React.Component {
                   <RaisedButton label={this.state.currentStep !== 4 ? 'Next Step' : 'Finish'} secondary={true} onClick = {this.incrementStepCounter}/>
                 </div>
                 <div style = {{paddingTop: '100px', textAlign: 'center'}}>
-                  <LinearProgress mode="determinate" value={this.state.currentStep * 15} />
+                  <LinearProgress mode="determinate" value={(this.state.currentStep + 1) * 20 } />
                   <span style = {progressFont} >Step {this.state.currentStep + 1} out of 5 completed</span>
                 </div>
               </div>
