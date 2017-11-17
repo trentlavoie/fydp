@@ -58,7 +58,7 @@ export default class RecommendationView extends React.Component {
         currentStep: 4,
         location: '',
         budgetAmount: 5000,
-        selectedCarType: 0,
+        selectedCarType: [],
         file: null,
         preferences: [
           {
@@ -165,11 +165,19 @@ export default class RecommendationView extends React.Component {
       }
 
       this.carTypeClicked = (evt) => {
+
+        var modifiedCarTypeArr = _.cloneDeep(this.state.selectedCarType);
+
         if (evt && evt.currentTarget) {
-          if (parseInt(evt.currentTarget.id) === this.state.selectedCarType) {
-            this.setState({selectedCarType: 0})
+
+          var id = parseInt(evt.currentTarget.id);
+
+          if (modifiedCarTypeArr.indexOf(id) >= 0) {
+            modifiedCarTypeArr.splice(modifiedCarTypeArr.indexOf(id), 1);
+            this.setState({selectedCarType: modifiedCarTypeArr})
           } else {
-            this.setState({selectedCarType: parseInt(evt.currentTarget.id)})
+            modifiedCarTypeArr.push(id);
+            this.setState({selectedCarType: modifiedCarTypeArr})
           }
         }
       }
@@ -271,27 +279,27 @@ export default class RecommendationView extends React.Component {
             <div style = {{marginTop: '-100px'}}>
               <span style=  {headerFont}>Car Type</span>
             </div>
-            <Paper style={style} zDepth={this.state.selectedCarType === 1 ? 5 : 1}>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(1) >= 0 ? 5 : 1}>
               <div id="1" style = {divStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
               </div>
             </Paper>
-            <Paper style={style} zDepth={this.state.selectedCarType === 2 ? 5 : 1}>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(2) >= 0 ? 5 : 1}>
               <div id="2" style = {divStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
               </div>
             </Paper>
-            <Paper style={style} zDepth={this.state.selectedCarType === 3 ? 5 : 1}>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(3) >= 0 ? 5 : 1}>
               <div id="3" style = {divStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
               </div>
             </Paper>
-            <Paper style={style} zDepth={this.state.selectedCarType === 4 ? 5 : 1}>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(4) >= 0 ? 5 : 1}>
               <div id="4" style = {divStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
               </div>
             </Paper>
-            <Paper style={style} zDepth={this.state.selectedCarType === 5 ? 5 : 1}>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(5) >= 0 ? 5 : 1}>
               <div id="5" style = {divStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
               </div>
