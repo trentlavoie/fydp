@@ -9,7 +9,7 @@ const style = {
 
 const backgroundStyle = {
   backgroundImage: `url(${backgroundImage})`,
-  height: '800px',
+  height: '1000px',
   display: 'flex',
   justifyContent: 'center'
 }

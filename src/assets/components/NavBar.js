@@ -31,12 +31,18 @@ export default class Navbar extends React.Component {
     render() {
         return (
           <AppBar iconElementLeft={
-            <div style = {{width: '400px'}}>
-            <Tabs value ={this.state.selectedIndex} onChange={this.onTabChange}>
-              <Tab label="Home" value = {0}/>
-              <Tab label="Portal" value = {1}/>
-              <Tab label="Survey" value = {2}/>
-            </Tabs>
+            <div style = {{width: '500px'}}>
+            <div style = {{position: 'relative', top: '5px', left: '10px', height: '1px'}}>
+              <FontIcon className="material-icons" style = {{fontSize: '40px'}}>map</FontIcon>
+            </div>
+
+            <div style = {{marginLeft: '70px'}}>
+              <Tabs value ={this.state.selectedIndex} onChange={this.onTabChange}>
+                <Tab label="Home" value = {0}/>
+                <Tab label="Portal" value = {1}/>
+                <Tab label="Survey" value = {2}/>
+              </Tabs>
+            </div>
             </div>
           }>
           <div style = {{width: '90px', marginTop: '7px'}}>
