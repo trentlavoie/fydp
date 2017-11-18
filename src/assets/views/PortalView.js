@@ -4,24 +4,20 @@ import Navbar from '../components/Navbar';
 
 export default class PortalView extends React.Component {
 
-    constructor() {
-      super();
-
-      this.handleClick = (evt) => {
-        console.log('hi', evt)
-      }
-    }
-
     render() {
         return (
           <div>
-            <Navbar/>
+            <Navbar selectedIndex={1}/>
             <div style = {{marginTop: '-5px', height: '900px'}}>
             <Sidebar.Pushable as={Segment}>
-            <Sidebar as={Menu} animation='slide along' width='thin' visible={true} icon='labeled' vertical inverted>
+            <Sidebar as={Menu} animation='slide along' width='wide' visible={true} icon='labeled' vertical inverted>
               <Menu.Item name='home' onClick={this.handleClick}>
                 <Icon name='home' />
-                Home
+                Main
+              </Menu.Item>
+              <Menu.Item name='star' onClick={this.handleClick}>
+                <Icon name='star' />
+                Recommendation History
               </Menu.Item>
             </Sidebar>
             <Sidebar.Pusher>
