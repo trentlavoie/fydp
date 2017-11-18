@@ -11,6 +11,10 @@
 
 .bubble-legend { pointer-events: none; }
 
+.recommendation-panel-height {
+  height: 800px;
+}
+
 /* Center text in the circle, and hide any overflow */
 .bubble-chart-container .bubble-chart-text .bubble-label {
   text-align: center;
