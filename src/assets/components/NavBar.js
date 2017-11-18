@@ -6,6 +6,7 @@ import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import FontIcon from 'material-ui/FontIcon';
+import {Tabs, Tab} from 'material-ui/Tabs';
 
 export default class Navbar extends React.Component {
 

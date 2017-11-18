@@ -27,6 +27,23 @@ export default class PortalView extends React.Component {
             <Sidebar.Pusher>
               <Segment basic>
                 <Header as='h3'>Application Content</Header>
+                <div className="ui three column grid">
+                <div className="column">
+                  <div>
+                    Hi
+                  </div>
+                </div>
+                <div className="column">
+                  <div>
+                    Testing
+                  </div>
+                </div>
+                <div className="column">
+                  <div>
+                    Stuff
+                  </div>
+                </div>
+              </div>
                 <Image src='/assets/images/wireframe/paragraph.png' />
               </Segment>
             </Sidebar.Pusher>
