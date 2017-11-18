@@ -8,29 +8,36 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import FontIcon from 'material-ui/FontIcon';
 import {Tabs, Tab} from 'material-ui/Tabs';
 
+const tabStyle = {
+  width: '33%'
+}
+
 export default class Navbar extends React.Component {
 
     render() {
         return (
-          <AppBar
-            iconElementRight={
-              <div style = {{width: '90px'}}>
-                <Avatar style={{marginTop: '2px'}} src='https://ih1.redbubble.net/image.195485388.5310/flat,800x800,075,f.jpg' />
-                <IconMenu
-                  style = {{float: 'right'}}
-                  iconButtonElement={
-                    <IconButton><MoreVertIcon /></IconButton>
-                  }
-                  targetOrigin={{horizontal: 'right', vertical: 'bottom'}}
-                  anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-                >
-                  <MenuItem primaryText="Account Settings" leftIcon={<FontIcon className="material-icons">settings</FontIcon>} />
-                  <MenuItem primaryText="Help" />
-                  <MenuItem primaryText="Sign out" />
-                </IconMenu>
-              </div>
-            }
-          />
+          <AppBar>
+          <div style = {{width: '90px', marginTop: '7px'}}>
+            <Avatar style={{marginTop: '2px'}} src='https://ih1.redbubble.net/image.195485388.5310/flat,800x800,075,f.jpg' />
+            <IconMenu
+              style = {{float: 'right'}}
+              iconButtonElement={
+                <IconButton><MoreVertIcon /></IconButton>
+              }
+              targetOrigin={{horizontal: 'right', vertical: 'bottom'}}
+              anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+            >
+              <MenuItem primaryText="Account Settings" leftIcon={<FontIcon className="material-icons">settings</FontIcon>} />
+              <MenuItem primaryText="Help" />
+              <MenuItem primaryText="Sign out" />
+            </IconMenu>
+          </div>
+
+          </AppBar>
         )
     }
+}
+
+Navbar.contextTypes = {
+    router: React.PropTypes.object.isRequired
 }
