@@ -8,6 +8,7 @@ import ReactBubbleChart from 'react-bubble-chart';
 import LinearProgress from 'material-ui/LinearProgress';
 import Paper from 'material-ui/Paper';
 import _ from 'lodash';
+import { Button } from 'semantic-ui-react';
 
 var colorLegend = [
   //reds from dark to light
@@ -344,7 +345,7 @@ export default class RecommendationView extends React.Component {
               <div style = {{alignSelf: 'center', width: '1000px', height: '300px'}} >
                 {this.renderCurrentStep()}
                 <div style = {{float: 'left'}}>
-                    <RaisedButton label="Back" disabled={this.state.currentStep === 0} secondary={true} onClick = {() => {this.setState({currentStep: this.state.currentStep - 1})}}/>
+                  <RaisedButton label="Back" disabled={this.state.currentStep === 0} secondary={true} onClick = {() => {this.setState({currentStep: this.state.currentStep - 1})}}/>
                 </div>
                 <div style = {{float: 'right'}}>
                   <RaisedButton label={this.state.currentStep !== 4 ? 'Next Step' : 'Finish'} secondary={true} onClick = {this.incrementStepCounter}/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react'
+import { Sidebar, Segment, Button, Menu, Image, Grid, Icon, Header } from 'semantic-ui-react'
 import Navbar from '../components/Navbar';
 
 export default class PortalView extends React.Component {
@@ -14,9 +14,9 @@ export default class PortalView extends React.Component {
 
     render() {
         return (
-          <div style = {{height: '800px'}}>
+          <div>
             <Navbar/>
-            <div style = {{height: '900px'}}>
+            <div style = {{marginTop: '-5px', height: '900px'}}>
             <Sidebar.Pushable as={Segment}>
             <Sidebar as={Menu} animation='slide along' width='thin' visible={true} icon='labeled' vertical inverted>
               <Menu.Item name='home' onClick={this.handleClick}>
@@ -27,23 +27,20 @@ export default class PortalView extends React.Component {
             <Sidebar.Pusher>
               <Segment basic>
                 <Header as='h3'>Application Content</Header>
-                <div className="ui three column grid">
-                <div className="column">
-                  <div>
-                    Hi
-                  </div>
-                </div>
-                <div className="column">
-                  <div>
-                    Testing
-                  </div>
-                </div>
-                <div className="column">
-                  <div>
-                    Stuff
-                  </div>
-                </div>
-              </div>
+                <Grid columns={3} divided>
+                  <Grid.Row>
+                    <Grid.Column>
+                      Hi
+                      <Image src='/assets/images/wireframe/media-paragraph.png' />
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Image src='/assets/images/wireframe/media-paragraph.png' />
+                    </Grid.Column>
+                    <Grid.Column>
+                      <Image src='/assets/images/wireframe/media-paragraph.png' />
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
                 <Image src='/assets/images/wireframe/paragraph.png' />
               </Segment>
             </Sidebar.Pusher>
