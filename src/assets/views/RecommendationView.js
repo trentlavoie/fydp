@@ -276,7 +276,7 @@ export default class RecommendationView extends React.Component {
 
         return (
           <div style = {centerContainer} > 
-            <FontIcon className="material-icons" style = {{fontSize: '80px', top: '-100px'}}>motorcycle</FontIcon>
+            <FontIcon className="material-icons" style = {{fontSize: '80px', top: '-100px'}}>local_shipping</FontIcon>
             <div style = {{marginTop: '-100px'}}>
               <span style=  {headerFont}>Car Type</span>
             </div>

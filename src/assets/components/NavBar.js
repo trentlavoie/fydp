@@ -56,8 +56,8 @@ export default class Navbar extends React.Component {
               anchorOrigin={{horizontal: 'right', vertical: 'top'}}
             >
               <MenuItem primaryText="Account Settings" leftIcon={<FontIcon className="material-icons">settings</FontIcon>} />
-              <MenuItem primaryText="Help" />
-              <MenuItem primaryText="Sign out" />
+              <MenuItem primaryText="Help" leftIcon={<FontIcon className="material-icons">backup</FontIcon>} />
+              <MenuItem primaryText="Sign out" leftIcon={<FontIcon className="material-icons">power_settings_new</FontIcon>} />
             </IconMenu>
           </div>
 
