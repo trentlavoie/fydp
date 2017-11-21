@@ -109,13 +109,6 @@ export default class PortalView extends React.Component {
                   </Menu.Item>
                 </Menu.Menu>
               </Menu.Item>
-
-              <div style = {{position: 'relative', marginTop: '450px'}}>
-                <Menu.Item name='account_settings'>
-                  <Icon name='setting' />
-                  Chnge your Account Settings
-                </Menu.Item>
-              </div>
             </Sidebar>
             <Sidebar.Pusher>
               {this.renderContentLayout()}
