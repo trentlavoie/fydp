@@ -27,11 +27,21 @@ export default class PortalView extends React.Component {
       super();
 
       this.state = {
-        runId: 1
+        runId: 1,
+        firstCardExpand: false,
+        secondCardExpand: false
       }
 
       this.handleClick = (evt, data) => {
         this.setState({runId: data.id})
+      }
+
+      this.onSecondCardExpand = (expand) => {
+        this.setState({secondCardExpand: expand})
+      }
+
+      this.onFirstCardExpand = (expand) => {
+        this.setState({firstCardExpand: expand})
       }
     }
 
@@ -87,7 +97,7 @@ export default class PortalView extends React.Component {
         <Grid columns={3} divided>
           <Grid.Row>
             <Grid.Column width={4} className="recommendation-panel-height">
-              <Card>
+              <Card onExpandChange={this.onFirstCardExpand}>
                 <CardMedia>
                   <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/performance/2018_camaro/01_images/intro/ca-2018-chevrolet-camaro-sports-car-mo-masthead-1480x551-01.jpg" alt="" />
                 </CardMedia>
@@ -117,14 +127,25 @@ export default class PortalView extends React.Component {
                       xScale={xScale}
                     />
                   </div>
-                  <div style = {{textAlign: 'center', paddingTop: '10px'}}>
-                  Down here
+                </CardText>
+
+                <CardActions actAsExpander={true}>
+                  <div style = {{textAlign: 'center'}}>
+                    {!this.state.firstCardExpand && <Icon name = 'chevron down' size="large"/>}
+                    {this.state.firstCardExpand && <Icon name = 'chevron up' size="large"/>}
+                  </div>
+                </CardActions>
+
+                <CardText expandable={true}>
+                  <div style = {{textAlign: 'center'}}>
+                    More Specifications Here
                   </div>
                 </CardText>
+
               </Card>
             </Grid.Column>
             <Grid.Column width={4} className="recommendation-panel-height">
-            <Card>
+            <Card onExpandChange={this.onSecondCardExpand}>
               <CardMedia>
                 <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/cars/2017_malibu/01_images/ca-2017-chevrolet-malibu-mid-size-sedan-mo-01_perspective_img_1.jpg" alt="" />
               </CardMedia>
@@ -159,7 +180,8 @@ export default class PortalView extends React.Component {
 
               <CardActions actAsExpander={true}>
                 <div style = {{textAlign: 'center'}}>
-                  <Icon name = 'chevron down' size="large"/>
+                  {!this.state.secondCardExpand && <Icon name = 'chevron down' size="large"/>}
+                  {this.state.secondCardExpand && <Icon name = 'chevron up' size="large"/>}
                 </div>
               </CardActions>
 
