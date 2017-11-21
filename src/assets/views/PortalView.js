@@ -37,7 +37,7 @@ export default class PortalView extends React.Component {
 
     renderContentLayout() {
 
-      var chartData = [
+      var chartDataCamaro = [
         {
           year:'2017M01',  total: 80
         },
@@ -48,6 +48,19 @@ export default class PortalView extends React.Component {
           year:'2019M01',  total: 110
         }
       ]
+
+      var chartDataMalibu = [
+        {
+          year:'2017M01',  total: 60
+        },
+        {
+          year:'2018M01',  total: 100
+        },
+        {
+          year:'2019M01',  total: 130
+        }
+      ]
+
       // your date format, use for parsing
 
       var parseDate = d3.time.format("%YM%m").parse;
@@ -96,7 +109,7 @@ export default class PortalView extends React.Component {
                     <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
                     <LineChart
                       margins= {margins}
-                      data={chartData}
+                      data={chartDataCamaro}
                       width={width}
                       height={height}
                       chartSeries={chartSeries}
@@ -115,7 +128,8 @@ export default class PortalView extends React.Component {
               <CardMedia>
                 <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/cars/2017_malibu/01_images/ca-2017-chevrolet-malibu-mid-size-sedan-mo-01_perspective_img_1.jpg" alt="" />
               </CardMedia>
-              <CardTitle title="2017 Cheverolet Malibu 4 Door Sedan ZL1"/>
+              <CardTitle title="2017 Cheverolet Malibu 4 Door Sedan ZL1">
+              </CardTitle>
               <CardText>
                 <div style = {cardSectionStyle}>
                   <Icon name='dollar' size="huge" />
@@ -133,7 +147,7 @@ export default class PortalView extends React.Component {
                   <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
                   <LineChart
                     margins= {margins}
-                    data={chartData}
+                    data={chartDataMalibu}
                     width={width}
                     height={height}
                     chartSeries={chartSeries}
@@ -141,8 +155,17 @@ export default class PortalView extends React.Component {
                     xScale={xScale}
                   />
                 </div>
-                <div style = {{textAlign: 'center', paddingTop: '10px'}}>
-                Down here
+              </CardText>
+
+              <CardActions actAsExpander={true}>
+                <div style = {{textAlign: 'center'}}>
+                  <Icon name = 'chevron down' size="large"/>
+                </div>
+              </CardActions>
+
+              <CardText expandable={true}>
+                <div style = {{textAlign: 'center'}}>
+                  More Specifications Here
                 </div>
               </CardText>
             </Card>
@@ -152,7 +175,6 @@ export default class PortalView extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <Image src='/assets/images/wireframe/paragraph.png' />
       </Segment>
       )
     }
