@@ -9,6 +9,7 @@ import LinearProgress from 'material-ui/LinearProgress';
 import Paper from 'material-ui/Paper';
 import _ from 'lodash';
 import { Button } from 'semantic-ui-react';
+import request from 'superagent';
 
 var colorLegend = [
   //reds from dark to light
@@ -50,6 +51,14 @@ const captionFont = {
   fontSize: '15px',
   color: 'teal'
 }
+
+const vehicleTypes = [
+  'Sedan',
+  'Hatch',
+  'Truck',
+  'Wat',
+  'Face'
+]
 
 export default class RecommendationView extends React.Component {
 
@@ -194,8 +203,36 @@ export default class RecommendationView extends React.Component {
       this.incrementStepCounter = () => {
         if (this.state.currentStep !== 4 ) {
           this.setState({currentStep: this.state.currentStep + 1})
+        } else if (this.state.currentStep === 4) {
+          this.postPreferenceData();
         }
       }
+
+      this.postPreferenceData = () => {
+
+        var selectedVehicleTypes = [];
+
+        this.state.selectedCarType.forEach((carIndex) => {
+          selectedVehicleTypes.push(vehicleTypes[carIndex]);
+        })
+
+        var formData = new FormData();
+        formData.append('file', this.refs.fileUpload.files[0])
+        formData.append('budget', this.state.budgetAmount);
+        formData.append('location', this.state.location);
+
+        request
+          .post('http://localhost:3001/process')
+          .send(formData)
+          .end(function(err, res){
+            if (err || !res.ok) {
+              alert('Oh no! error');
+            } else {
+              alert('yay got');
+            }
+          });
+      }
+
     }
 
     renderCurrentStep() {

@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_webpack import Webpack
 from werkzeug.serving import run_simple
+from werkzeug import secure_filename
 import os
 
 webpack = Webpack()
@@ -22,6 +23,11 @@ params = {
     'WEBPACK_MANIFEST_PATH': './build/manifest.json'
 }
 
+UPLOAD_FOLDER = 'tmp/'
+ALLOWED_EXTENSIONS = set(['txt'])
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 app.config.update(params)
 
 webpack.init_app(app)
@@ -30,6 +36,12 @@ webpack.init_app(app)
 @app.route('/<path:path>')
 def index(path):
     return render_template('index.jinja2')
+@app.route('/process', methods=['POST'])
+def process_preference_data():
+    file = request.files['file'];
+    filename = secure_filename(file.filename)
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    return 'Success Code or Error Code here'
 
 if __name__ == '__main__':
     run_simple('localhost', 3001, app, use_reloader=True, use_debugger=True)
