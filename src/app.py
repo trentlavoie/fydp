@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from flask_webpack import Webpack
 from werkzeug.serving import run_simple
 from werkzeug import secure_filename
+from flaskext.mysql import MySQL
 import os
 
 webpack = Webpack()
@@ -10,13 +11,16 @@ databaseConn = 'mysql://bfef844a9a31a0:ae5c3305@us-cdbr-iron-east-03.cleardb.net
 
 app = Flask(__name__, static_url_path='')
 
-#Initialize database connection string
-#app.config['SQLALCHEMY_POOL_TIMEOUT'] = 1
-#app.config['SQLALCHEMY_POOL_SIZE'] = 1000
-#app.config['SQLALCHEMY_DATABASE_URI'] = databaseConn
-#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = False
-#db = SQLAlchemy(app)
+mysql = MySQL()
+app.config['MYSQL_DATABASE_USER'] = ''
+app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_DB'] = 'demo'
+app.config['MYSQL_DATABASE_HOST'] = ''
+mysql.init_app(app)
+
+conn = mysql.connect()
+cursor =conn.cursor()
+#use cursor to execute queries from now on
 
 params = {
     'DEBUG': True,
