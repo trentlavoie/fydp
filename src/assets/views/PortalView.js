@@ -3,10 +3,22 @@ import { Sidebar, Segment, Button, Menu, Image, Grid, Icon, Header } from 'seman
 import Navbar from '../components/Navbar';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import FontIcon from 'material-ui/FontIcon';
+import * as d3 from "d3";
+import {LineChart} from 'react-d3-basic'
 
 const runIconStyle = {
   marginRight: '50px',
   height: '0px'
+}
+
+const cardSectionStyle = {
+  paddingBottom: '20px'
+}
+
+const cardSectionFont = {
+  fontSize: '30px',
+  fontFamily: 'futura'
 }
 
 export default class PortalView extends React.Component {
@@ -24,40 +36,116 @@ export default class PortalView extends React.Component {
     }
 
     renderContentLayout() {
+
+      var chartData = [
+        {
+          year:'2017M01',  total: 80
+        },
+        {
+          year:'2018M01',  total: 90
+        },
+        {
+          year:'2019M01',  total: 110
+        }
+      ]
+      // your date format, use for parsing
+
+      var parseDate = d3.time.format("%YM%m").parse;
+
+      var width = 500,
+        height = 300,
+        margins = {left: 50, right: 130, top: 20, bottom: 50},
+        chartSeries = [
+          {
+            field: 'total',
+            name: 'Total',
+            color: '#ff7f0e'
+          }
+        ],
+        // your x accessor
+        x = function(d) {
+          return parseDate(d.year);
+        },
+        xScale = 'time';
+
       return (
         <Segment basic>
-        <Header as='h3'>Application Content</Header>
+        <Header as='h3'>Recommendations & Comparison</Header>
         <Grid columns={3} divided>
           <Grid.Row>
-            <Grid.Column  width={4} className="recommendation-panel-height">
-
-              Recommendation {this.state.runId}
+            <Grid.Column width={4} className="recommendation-panel-height">
               <Card>
-                <CardHeader
-                  title={"Recommendation for Run " + this.state.runId}
-                  subtitle="Subtitle"
-                  avatar="images/jsa-128.jpg"
-                />
-                <CardMedia
-                  overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
-                >
-                  <img src="https://www.bmw.ca/content/dam/bmw/marketCA/bmw_ca/en_CA/M550i_1680.jpg/_jcr_content/renditions/cq5dam.resized.img.1680.large.time1501266489469.jpg" alt="" />
+                <CardMedia>
+                  <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/performance/2018_camaro/01_images/intro/ca-2018-chevrolet-camaro-sports-car-mo-masthead-1480x551-01.jpg" alt="" />
                 </CardMedia>
-                <CardTitle title="Card title" subtitle="Card subtitle" />
+                <CardTitle title="2018 Chevrolet Camaro ZL1 2 Door Coupe RWD ZL1"/>
                 <CardText>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-                  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-                  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+                  <div style = {cardSectionStyle}>
+                    <Icon name='dollar' size="huge" />
+                    <span style = {cardSectionFont}>= $80,000 </span>
+                  </div>
+                  <div style = {cardSectionStyle}>
+                    <Icon name='car' size="huge" />
+                    <span style = {cardSectionFont}>= 650W </span>
+                  </div>
+                  <div style = {cardSectionStyle}>
+                    <Icon name='industry' size="huge" />
+                    <span style = {cardSectionFont}>= 50L </span>
+                  </div>
+                  <div style = {{textAlign: 'center', paddingTop: '10px'}}>
+                    <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
+                    <LineChart
+                      margins= {margins}
+                      data={chartData}
+                      width={width}
+                      height={height}
+                      chartSeries={chartSeries}
+                      x={x}
+                      xScale={xScale}
+                    />
+                  </div>
+                  <div style = {{textAlign: 'center', paddingTop: '10px'}}>
+                  Down here
+                  </div>
                 </CardText>
-                <CardActions>
-                  <FlatButton label="Action1" />
-                  <FlatButton label="Action2" />
-                </CardActions>
               </Card>
             </Grid.Column>
-            <Grid.Column className="recommendation-panel-height">
-              <Image src='/assets/images/wireframe/media-paragraph.png' />
+            <Grid.Column width={4} className="recommendation-panel-height">
+            <Card>
+              <CardMedia>
+                <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/cars/2017_malibu/01_images/ca-2017-chevrolet-malibu-mid-size-sedan-mo-01_perspective_img_1.jpg" alt="" />
+              </CardMedia>
+              <CardTitle title="2017 Cheverolet Malibu 4 Door Sedan ZL1"/>
+              <CardText>
+                <div style = {cardSectionStyle}>
+                  <Icon name='dollar' size="huge" />
+                  <span style = {cardSectionFont}>= $60,000 </span>
+                </div>
+                <div style = {cardSectionStyle}>
+                  <Icon name='car' size="huge" />
+                  <span style = {cardSectionFont}>= 450W </span>
+                </div>
+                <div style = {cardSectionStyle}>
+                  <Icon name='industry' size="huge" />
+                  <span style = {cardSectionFont}>= 20L </span>
+                </div>
+                <div style = {{textAlign: 'center', paddingTop: '10px'}}>
+                  <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
+                  <LineChart
+                    margins= {margins}
+                    data={chartData}
+                    width={width}
+                    height={height}
+                    chartSeries={chartSeries}
+                    x={x}
+                    xScale={xScale}
+                  />
+                </div>
+                <div style = {{textAlign: 'center', paddingTop: '10px'}}>
+                Down here
+                </div>
+              </CardText>
+            </Card>
             </Grid.Column>
             <Grid.Column className="recommendation-panel-height">
               <Image src='/assets/images/wireframe/media-paragraph.png' />
@@ -73,7 +161,7 @@ export default class PortalView extends React.Component {
         return (
           <div>
             <Navbar selectedIndex={1}/>
-            <div style = {{marginTop: '-5px', height: '900px'}}>
+            <div style = {{marginTop: '-5px', height: '1000px'}}>
             <Sidebar.Pushable as={Segment}>
             <Sidebar as={Menu} animation='slide along' width='wide' visible={true} icon='labeled' vertical inverted>
               <Menu.Item name='home'>

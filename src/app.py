@@ -16,8 +16,8 @@ app.config['MYSQL_DATABASE_DB'] = 'demo'
 app.config['MYSQL_DATABASE_HOST'] = ''
 mysql.init_app(app)
 
-conn = mysql.connect()
-cursor =conn.cursor()
+#conn = mysql.connect()
+#cursor =conn.cursor()
 #use cursor to execute queries from now on
 
 params = {

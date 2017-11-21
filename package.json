@@ -15,6 +15,7 @@
     "moment": "^2.18.1",
     "react": "^15.4.2",
     "react-bubble-chart": "^0.4.0",
+    "react-d3-basic": "^1.6.11",
     "react-dom": "^15.4.2",
     "react-geosuggest": "^2.6.0",
     "react-http-request": "^1.0.3",
