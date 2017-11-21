@@ -7,8 +7,6 @@ import os
 
 webpack = Webpack()
 
-databaseConn = 'mysql://bfef844a9a31a0:ae5c3305@us-cdbr-iron-east-03.cleardb.net/heroku_82c859f0679adfb?reconnect=true'
-
 app = Flask(__name__, static_url_path='')
 
 mysql = MySQL()
