@@ -6,6 +6,14 @@ import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 import * as d3 from "d3";
 import {LineChart} from 'react-d3-basic'
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 
 const runIconStyle = {
   marginRight: '50px',
@@ -104,6 +112,10 @@ export default class PortalView extends React.Component {
                 <CardTitle title="2018 Chevrolet Camaro ZL1 2 Door Coupe RWD ZL1"/>
                 <CardText>
                   <div style = {cardSectionStyle}>
+                    <Icon name='star' size="huge" />
+                    <span style = {cardSectionFont}>= 7/10 </span>
+                  </div>
+                  <div style = {cardSectionStyle}>
                     <Icon name='dollar' size="huge" />
                     <span style = {cardSectionFont}>= $80,000 </span>
                   </div>
@@ -153,6 +165,10 @@ export default class PortalView extends React.Component {
               </CardTitle>
               <CardText>
                 <div style = {cardSectionStyle}>
+                  <Icon name='star' size="huge" />
+                  <span style = {cardSectionFont}>= 8/10 </span>
+                </div>
+                <div style = {cardSectionStyle}>
                   <Icon name='dollar' size="huge" />
                   <span style = {cardSectionFont}>= $60,000 </span>
                 </div>
@@ -186,8 +202,21 @@ export default class PortalView extends React.Component {
               </CardActions>
 
               <CardText expandable={true}>
-                <div style = {{textAlign: 'center'}}>
-                  More Specifications Here
+                <div>
+                <Table>
+                  <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
+                    <TableRow>
+                      <TableHeaderColumn>Specification</TableHeaderColumn>
+                      <TableHeaderColumn>Units</TableHeaderColumn>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody displayRowCheckbox={false}>
+                    <TableRow>
+                      <TableRowColumn># of Doors</TableRowColumn>
+                      <TableRowColumn>4</TableRowColumn>
+                    </TableRow>
+                  </TableBody>
+                </Table>
                 </div>
               </CardText>
             </Card>
@@ -205,7 +234,7 @@ export default class PortalView extends React.Component {
         return (
           <div>
             <Navbar selectedIndex={1}/>
-            <div style = {{marginTop: '-5px', height: '1000px'}}>
+            <div style = {{marginTop: '-5px', height: '1300px'}}>
             <Sidebar.Pushable as={Segment}>
             <Sidebar as={Menu} animation='slide along' width='wide' visible={true} icon='labeled' vertical inverted>
               <Menu.Item name='home'>
