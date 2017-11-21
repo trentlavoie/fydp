@@ -6,6 +6,8 @@ import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 import * as d3 from "d3";
 import {LineChart} from 'react-d3-basic'
+import ReactTooltip from 'react-tooltip';
+
 import {
   Table,
   TableBody,
@@ -101,7 +103,7 @@ export default class PortalView extends React.Component {
 
       return (
         <Segment basic>
-        <Header as='h3'>Recommendations & Comparison</Header>
+        <Header as='h3'>Recommendations & Comparison for Run: {this.state.runId}</Header>
         <Grid columns={3} divided>
           <Grid.Row>
             <Grid.Column width={4} className="recommendation-panel-height">
@@ -112,20 +114,25 @@ export default class PortalView extends React.Component {
                 <CardTitle title="2018 Chevrolet Camaro ZL1 2 Door Coupe RWD ZL1"/>
                 <CardText>
                   <div style = {cardSectionStyle}>
-                    <Icon name='star' size="huge" />
+                    <Icon data-tip="Rating" name='star' size="huge">
+                    <ReactTooltip />
+                    </Icon>
                     <span style = {cardSectionFont}>= 7/10 </span>
                   </div>
                   <div style = {cardSectionStyle}>
-                    <Icon name='dollar' size="huge" />
+                    <Icon name='dollar' size="huge" data-tip="Budget Price" />
+                    <ReactTooltip />
                     <span style = {cardSectionFont}>= $80,000 </span>
                   </div>
                   <div style = {cardSectionStyle}>
-                    <Icon name='car' size="huge" />
+                    <Icon name='car' size="huge" data-tip="Horse Power" />
+                    <ReactTooltip />
                     <span style = {cardSectionFont}>= 650W </span>
                   </div>
                   <div style = {cardSectionStyle}>
-                    <Icon name='industry' size="huge" />
+                    <Icon name='industry' size="huge" data-tip="Fuel Consumption Rating" />
                     <span style = {cardSectionFont}>= 50L </span>
+                    <ReactTooltip/>
                   </div>
                   <div style = {{textAlign: 'center', paddingTop: '10px'}}>
                     <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
@@ -165,32 +172,37 @@ export default class PortalView extends React.Component {
               </CardTitle>
               <CardText>
                 <div style = {cardSectionStyle}>
-                  <Icon name='star' size="huge" />
-                  <span style = {cardSectionFont}>= 8/10 </span>
+                  <Icon data-tip="Rating" name='star' size="huge">
+                  <ReactTooltip />
+                  </Icon>
+                  <span style = {cardSectionFont}>= 6.5/10 </span>
                 </div>
                 <div style = {cardSectionStyle}>
-                  <Icon name='dollar' size="huge" />
+                  <Icon name='dollar' size="huge" data-tip="Budget Price" />
+                  <ReactTooltip />
                   <span style = {cardSectionFont}>= $60,000 </span>
                 </div>
                 <div style = {cardSectionStyle}>
-                  <Icon name='car' size="huge" />
+                  <Icon name='car' size="huge" data-tip="Horse Power" />
+                  <ReactTooltip />
                   <span style = {cardSectionFont}>= 450W </span>
                 </div>
                 <div style = {cardSectionStyle}>
-                  <Icon name='industry' size="huge" />
+                  <Icon name='industry' size="huge" data-tip="Fuel Consumption Rating" />
                   <span style = {cardSectionFont}>= 20L </span>
+                  <ReactTooltip/>
                 </div>
                 <div style = {{textAlign: 'center', paddingTop: '10px'}}>
-                  <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
-                  <LineChart
-                    margins= {margins}
-                    data={chartDataMalibu}
-                    width={width}
-                    height={height}
-                    chartSeries={chartSeries}
-                    x={x}
-                    xScale={xScale}
-                  />
+                <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
+                <LineChart
+                  margins= {margins}
+                  data={chartDataMalibu}
+                  width={width}
+                  height={height}
+                  chartSeries={chartSeries}
+                  x={x}
+                  xScale={xScale}
+                />
                 </div>
               </CardText>
 
