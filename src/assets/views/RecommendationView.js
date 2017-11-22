@@ -65,7 +65,7 @@ export default class RecommendationView extends React.Component {
     constructor() {
       super();
       this.state = {
-        currentStep: 4,
+        currentStep: 3,
         location: '',
         budgetAmount: 5000,
         selectedCarType: [],
@@ -212,10 +212,14 @@ export default class RecommendationView extends React.Component {
 
         var selectedVehicleTypes = [];
 
-        this.state.selectedCarType.forEach((carIndex) => {
-          selectedVehicleTypes.push(vehicleTypes[carIndex]);
-        })
-
+        if (this.state.selectedCarType.indexOf(1) >= 0) {
+          selectedVehicleTypes = vehicleTypes;
+        } else {
+          this.state.selectedCarType.forEach((carIndex) => {
+            selectedVehicleTypes.push(vehicleTypes[carIndex]);
+          })
+        }
+        
         var formData = new FormData();
         formData.append('file', this.refs.fileUpload.files[0])
         formData.append('budget', this.state.budgetAmount);
@@ -311,35 +315,76 @@ export default class RecommendationView extends React.Component {
           top: -20
         }
 
+        const typeContainer = {
+          textAlign: 'center',
+          height: '200px',
+          width: '1500px',
+          marginLeft: '-250px'
+        }
+
+        const imageStyle = {
+          marginTop: '20px'
+        }
+
         return (
-          <div style = {centerContainer} > 
+          <div style = {typeContainer} > 
             <FontIcon className="material-icons" style = {{fontSize: '80px', top: '-100px'}}>local_shipping</FontIcon>
             <div style = {{marginTop: '-100px'}}>
-              <span style=  {headerFont}>Car Type</span>
+              <span style = {headerFont}>Car Type</span>
             </div>
+
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(1) >= 0 ? 5 : 1}>
               <div id="1" style = {divStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>Any</div>
               </div>
             </Paper>
-            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(2) >= 0 ? 5 : 1}>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(2) >= 0 || this.state.selectedCarType.indexOf(1) >= 0 ? 5 : 1}>
               <div id="2" style = {divStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>Hatchback</div>
               </div>
             </Paper>
-            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(3) >= 0 ? 5 : 1}>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(3) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="3" style = {divStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>Sedan</div>
               </div>
             </Paper>
-            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(4) >= 0 ? 5 : 1}>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(4) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="4" style = {divStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>SUV</div>
               </div>
             </Paper>
-            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(5) >= 0 ? 5 : 1}>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(5) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="5" style = {divStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {{marginTop: '20px'}} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>Crossover</div>
+              </div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(6) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
+              <div id="6" style = {divStyle} onClick={this.carTypeClicked}>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>MUV</div>
+              </div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(7) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
+              <div id="7" style = {divStyle} onClick={this.carTypeClicked}>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>Coupe</div>
+              </div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(8) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
+              <div id="8" style = {divStyle} onClick={this.carTypeClicked}>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>Convertible</div>
+              </div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(9) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
+              <div id="9" style = {divStyle} onClick={this.carTypeClicked}>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>Smart Car</div>
               </div>
             </Paper>
           </div>

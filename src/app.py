@@ -40,9 +40,10 @@ def index(path):
     return render_template('index.jinja2')
 @app.route('/process', methods=['POST'])
 def process_preference_data():
-    file = request.files['file'];
-    filename = secure_filename(file.filename)
-    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    if request != None and request.files != None and len(request.files) > 0:
+        file = request.files['file'];
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     return 'Success Code or Error Code here'
 
 if __name__ == '__main__':
