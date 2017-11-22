@@ -39,7 +39,8 @@ export default class PortalView extends React.Component {
       this.state = {
         runId: 1,
         firstCardExpand: false,
-        secondCardExpand: false
+        secondCardExpand: false,
+        thirdCardExpand: false
       }
 
       this.handleClick = (evt, data) => {
@@ -48,6 +49,10 @@ export default class PortalView extends React.Component {
 
       this.onSecondCardExpand = (expand) => {
         this.setState({secondCardExpand: expand})
+      }
+
+      this.onThirdCardExpand = (expand) => {
+        this.setState({thirdCardExpand: expand})
       }
 
       this.onFirstCardExpand = (expand) => {
@@ -122,7 +127,7 @@ export default class PortalView extends React.Component {
                   <div style = {cardSectionStyle}>
                     <Icon name='dollar' size="huge" data-tip="Budget Price" />
                     <ReactTooltip />
-                    <span style = {cardSectionFont}>= $80,000 </span>
+                    <span style = {cardSectionFont}>= $28,000 </span>
                   </div>
                   <div style = {cardSectionStyle}>
                     <Icon name='car' size="huge" data-tip="Horse Power" />
@@ -156,9 +161,20 @@ export default class PortalView extends React.Component {
                 </CardActions>
 
                 <CardText expandable={true}>
-                  <div style = {{textAlign: 'center'}}>
-                    More Specifications Here
-                  </div>
+                  <Table>
+                    <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
+                      <TableRow>
+                        <TableHeaderColumn>Specification</TableHeaderColumn>
+                        <TableHeaderColumn>Units</TableHeaderColumn>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody displayRowCheckbox={false}>
+                      <TableRow>
+                        <TableRowColumn># of Doors</TableRowColumn>
+                        <TableRowColumn>4</TableRowColumn>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
                 </CardText>
 
               </Card>
@@ -180,7 +196,7 @@ export default class PortalView extends React.Component {
                 <div style = {cardSectionStyle}>
                   <Icon name='dollar' size="huge" data-tip="Budget Price" />
                   <ReactTooltip />
-                  <span style = {cardSectionFont}>= $60,000 </span>
+                  <span style = {cardSectionFont}>= $20,000 </span>
                 </div>
                 <div style = {cardSectionStyle}>
                   <Icon name='car' size="huge" data-tip="Horse Power" />
@@ -214,7 +230,6 @@ export default class PortalView extends React.Component {
               </CardActions>
 
               <CardText expandable={true}>
-                <div>
                 <Table>
                   <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
                     <TableRow>
@@ -229,12 +244,76 @@ export default class PortalView extends React.Component {
                     </TableRow>
                   </TableBody>
                 </Table>
-                </div>
               </CardText>
             </Card>
             </Grid.Column>
-            <Grid.Column className="recommendation-panel-height">
-              <Image src='/assets/images/wireframe/media-paragraph.png' />
+            <Grid.Column className="recommendation-panel-height" width={4}>
+              <Card onExpandChange={this.onThirdCardExpand}>
+                <CardMedia>
+                  <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/cars/2017_impala/01_images/ca-2017-chevrolet-impala-full-size-sedan-intro-1480x551-01.jpg" alt="" />
+                </CardMedia>
+                <CardTitle title="2017 Cheverolet Impala 4 Door Sedan ZL1">
+                </CardTitle>
+                <CardText>
+                  <div style = {cardSectionStyle}>
+                    <Icon data-tip="Rating" name='star' size="huge">
+                    <ReactTooltip />
+                    </Icon>
+                    <span style = {cardSectionFont}>= 7.25/10 </span>
+                  </div>
+                  <div style = {cardSectionStyle}>
+                    <Icon name='dollar' size="huge" data-tip="Budget Price" />
+                    <ReactTooltip />
+                    <span style = {cardSectionFont}>= $30,000 </span>
+                  </div>
+                  <div style = {cardSectionStyle}>
+                    <Icon name='car' size="huge" data-tip="Horse Power" />
+                    <ReactTooltip />
+                    <span style = {cardSectionFont}>= 550W </span>
+                  </div>
+                  <div style = {cardSectionStyle}>
+                    <Icon name='industry' size="huge" data-tip="Fuel Consumption Rating" />
+                    <span style = {cardSectionFont}>= 25L </span>
+                    <ReactTooltip/>
+                  </div>
+                  <div style = {{textAlign: 'center', paddingTop: '10px'}}>
+                  <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
+                  <LineChart
+                    margins= {margins}
+                    data={chartDataMalibu}
+                    width={width}
+                    height={height}
+                    chartSeries={chartSeries}
+                    x={x}
+                    xScale={xScale}
+                  />
+                  </div>
+                </CardText>
+
+                <CardActions actAsExpander={true}>
+                  <div style = {{textAlign: 'center'}}>
+                    {!this.state.thirdCardExpand && <Icon name = 'chevron down' size="large"/>}
+                    {this.state.thirdCardExpand && <Icon name = 'chevron up' size="large"/>}
+                  </div>
+                </CardActions>
+
+                <CardText expandable={true}>
+                  <Table>
+                    <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
+                      <TableRow>
+                        <TableHeaderColumn>Specification</TableHeaderColumn>
+                        <TableHeaderColumn>Units</TableHeaderColumn>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody displayRowCheckbox={false}>
+                      <TableRow>
+                        <TableRowColumn># of Doors</TableRowColumn>
+                        <TableRowColumn>4</TableRowColumn>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
+                </CardText>
+              </Card>
             </Grid.Column>
           </Grid.Row>
         </Grid>
