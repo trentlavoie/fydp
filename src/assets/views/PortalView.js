@@ -111,7 +111,7 @@ export default class PortalView extends React.Component {
         <Header as='h3'>Recommendations & Comparison for Run: {this.state.runId}</Header>
         <Grid columns={3} divided>
           <Grid.Row>
-            <Grid.Column width={4} className="recommendation-panel-height">
+            <Grid.Column className="recommendation-panel-card">
               <Card onExpandChange={this.onFirstCardExpand}>
                 <CardMedia>
                   <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/performance/2018_camaro/01_images/intro/ca-2018-chevrolet-camaro-sports-car-mo-masthead-1480x551-01.jpg" alt="" />
@@ -179,7 +179,7 @@ export default class PortalView extends React.Component {
 
               </Card>
             </Grid.Column>
-            <Grid.Column width={4} className="recommendation-panel-height">
+            <Grid.Column className="recommendation-panel-card">
             <Card onExpandChange={this.onSecondCardExpand}>
               <CardMedia>
                 <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/cars/2017_malibu/01_images/ca-2017-chevrolet-malibu-mid-size-sedan-mo-01_perspective_img_1.jpg" alt="" />
@@ -247,7 +247,7 @@ export default class PortalView extends React.Component {
               </CardText>
             </Card>
             </Grid.Column>
-            <Grid.Column className="recommendation-panel-height" width={4}>
+            <Grid.Column className="recommendation-panel-card">
               <Card onExpandChange={this.onThirdCardExpand}>
                 <CardMedia>
                   <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/cars/2017_impala/01_images/ca-2017-chevrolet-impala-full-size-sedan-intro-1480x551-01.jpg" alt="" />

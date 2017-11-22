@@ -11,8 +11,9 @@
 
 .bubble-legend { pointer-events: none; }
 
-.recommendation-panel-height {
+.recommendation-panel-card {
   height: 1100px;
+  width: 500px !important;
 }
 
 /* Center text in the circle, and hide any overflow */
