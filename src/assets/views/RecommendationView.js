@@ -52,6 +52,38 @@ const captionFont = {
   color: 'teal'
 }
 
+const style = {
+  height: 100,
+  width: 100,
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
+  position: 'relative'
+};
+
+const inlinePaperDivStyle = {
+  height: 100,
+  width: 100,
+  margin: 20,
+  textAlign: 'center',
+  cursor: 'pointer',
+  display: 'block',
+  position: 'absolute',
+  left: -20,
+  top: -20
+}
+
+const typeContainer = {
+  textAlign: 'center',
+  height: '200px',
+  width: '1500px',
+  marginLeft: '-250px'
+}
+
+const imageStyle = {
+  marginTop: '20px'
+}
+
 const vehicleTypes = [
   'Sedan',
   'Hatch',
@@ -60,15 +92,21 @@ const vehicleTypes = [
   'Face'
 ]
 
+const fontIconStyle = {
+  fontSize: '80px',
+  top: '-100px'
+}
+
 export default class RecommendationView extends React.Component {
 
     constructor() {
       super();
       this.state = {
-        currentStep: 3,
+        currentStep: 0,
         location: '',
         budgetAmount: 5000,
         selectedCarType: [],
+        selectedDistanceTravelled: 0,
         file: null,
         preferences: [
           {
@@ -192,6 +230,20 @@ export default class RecommendationView extends React.Component {
         }
       }
 
+      this.distanceTravelClicked =(evt) => {
+
+        if (evt && evt.currentTarget) {
+
+          var id = parseInt(evt.currentTarget.id);
+
+          if (this.state.selectedDistanceTravelled === id) {
+            this.setState({selectedDistanceTravelled: 0})
+          } else {
+            this.setState({selectedDistanceTravelled: id})
+          }
+        }
+      }
+
       this.openFileDialog = () => {
         this.refs.fileUpload.click();
       }
@@ -201,10 +253,11 @@ export default class RecommendationView extends React.Component {
       }
 
       this.incrementStepCounter = () => {
-        if (this.state.currentStep !== 4 ) {
+        if (this.state.currentStep !== 5 ) {
           this.setState({currentStep: this.state.currentStep + 1})
-        } else if (this.state.currentStep === 4) {
+        } else if (this.state.currentStep === 5) {
           this.postPreferenceData();
+          this.context.router.push('/portal');
         }
       }
 
@@ -230,9 +283,9 @@ export default class RecommendationView extends React.Component {
           .send(formData)
           .end(function(err, res){
             if (err || !res.ok) {
-              alert('Oh no! error');
+              //alert('Oh no! error');
             } else {
-              alert('yay got');
+              //alert('yay got');
             }
           });
       }
@@ -256,7 +309,7 @@ export default class RecommendationView extends React.Component {
             <FontIcon className="material-icons" style = {{fontSize: '80px'}}>shopping_cart</FontIcon>
             <div>
               <span style=  {headerFont}>My Budget</span>
-            </div> 
+            </div>
             <Slider
               min={5000}
               max={150000}
@@ -292,97 +345,63 @@ export default class RecommendationView extends React.Component {
         )
       } else if (this.state.currentStep === 3) {
 
-        const style = {
-          height: 100,
-          width: 100,
-          margin: 20,
-          textAlign: 'center',
-          display: 'inline-block',
-          position: 'relative'
-        };
-
-        var image = 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX19511256.jpg';
-
-        var divStyle = {
-          height: 100,
-          width: 100,
-          margin: 20,
-          textAlign: 'center',
-          cursor: 'pointer',
-          display: 'block',
-          position: 'absolute',
-          left: -20,
-          top: -20
-        }
-
-        const typeContainer = {
-          textAlign: 'center',
-          height: '200px',
-          width: '1500px',
-          marginLeft: '-250px'
-        }
-
-        const imageStyle = {
-          marginTop: '20px'
-        }
-
         return (
           <div style = {typeContainer} > 
-            <FontIcon className="material-icons" style = {{fontSize: '80px', top: '-100px'}}>local_shipping</FontIcon>
+            <FontIcon className="material-icons" style = {fontIconStyle}>local_shipping</FontIcon>
             <div style = {{marginTop: '-100px'}}>
               <span style = {headerFont}>Car Type</span>
             </div>
 
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(1) >= 0 ? 5 : 1}>
-              <div id="1" style = {divStyle} onClick={this.carTypeClicked}>
+              <div id="1" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
                 <div>Any</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(2) >= 0 || this.state.selectedCarType.indexOf(1) >= 0 ? 5 : 1}>
-              <div id="2" style = {divStyle} onClick={this.carTypeClicked}>
+              <div id="2" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
                 <div>Hatchback</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(3) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
-              <div id="3" style = {divStyle} onClick={this.carTypeClicked}>
+              <div id="3" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
                 <div>Sedan</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(4) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
-              <div id="4" style = {divStyle} onClick={this.carTypeClicked}>
+              <div id="4" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
                 <div>SUV</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(5) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
-              <div id="5" style = {divStyle} onClick={this.carTypeClicked}>
+              <div id="5" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
                 <div>Crossover</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(6) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
-              <div id="6" style = {divStyle} onClick={this.carTypeClicked}>
+              <div id="6" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
                 <div>MUV</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(7) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
-              <div id="7" style = {divStyle} onClick={this.carTypeClicked}>
+              <div id="7" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
                 <div>Coupe</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(8) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
-              <div id="8" style = {divStyle} onClick={this.carTypeClicked}>
+              <div id="8" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
                 <div>Convertible</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(9) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
-              <div id="9" style = {divStyle} onClick={this.carTypeClicked}>
+              <div id="9" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
                 <div>Smart Car</div>
               </div>
@@ -390,6 +409,60 @@ export default class RecommendationView extends React.Component {
           </div>
         )
       } else if (this.state.currentStep === 4) {
+/*        0 - 20 KM
+20 - 40 KM
+40 - 60 KM
+60 - 80 KM
+80 - 100 KM
+>100 KM */
+
+
+
+        return (
+          <div style = {typeContainer} > 
+            <FontIcon className="material-icons" style = {fontIconStyle}>near_me</FontIcon>
+            <div style = {{marginTop: '-100px'}}>
+              <span style = {headerFont}>Travelling Distance</span>
+            </div>
+            <Paper style={style} zDepth={this.state.selectedDistanceTravelled === 1 ? 5 : 1}>
+              <div id="1" style = {inlinePaperDivStyle} onClick={this.distanceTravelClicked}>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>0-20 KM</div>
+              </div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedDistanceTravelled === 2 ? 5 : 1}>
+              <div id="2" style = {inlinePaperDivStyle} onClick={this.distanceTravelClicked}>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>20-40 KM</div>
+              </div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedDistanceTravelled === 3 ? 5 : 1}>
+              <div id="3" style = {inlinePaperDivStyle} onClick={this.distanceTravelClicked}>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>40-60 KM</div>
+              </div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedDistanceTravelled === 4 ? 5 : 1}>
+              <div id="4" style = {inlinePaperDivStyle} onClick={this.distanceTravelClicked}>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>60-80 KM</div>
+              </div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedDistanceTravelled === 5 ? 5 : 1}>
+              <div id="5" style = {inlinePaperDivStyle} onClick={this.distanceTravelClicked}>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>80-100 KM</div>
+              </div>
+            </Paper>
+            <Paper style={style} zDepth={this.state.selectedDistanceTravelled === 6 ? 5 : 1}>
+              <div id="6" style = {inlinePaperDivStyle} onClick={this.distanceTravelClicked}>
+                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <div>>100 KM</div>
+              </div>
+            </Paper>
+          </div>
+        )
+      } else if (this.state.currentStep === 5) {
         return (
           <div style = {centerContainer}> 
             <FontIcon className="material-icons" style = {{fontSize: '80px'}}>file_upload</FontIcon>
@@ -430,15 +503,19 @@ export default class RecommendationView extends React.Component {
                   <RaisedButton label="Back" disabled={this.state.currentStep === 0} secondary={true} onClick = {() => {this.setState({currentStep: this.state.currentStep - 1})}}/>
                 </div>
                 <div style = {{float: 'right'}}>
-                  <RaisedButton label={this.state.currentStep !== 4 ? 'Next Step' : 'Finish'} secondary={true} onClick = {this.incrementStepCounter}/>
+                  <RaisedButton label={this.state.currentStep !== 5 ? 'Next Step' : 'Finish'} secondary={true} onClick = {this.incrementStepCounter}/>
                 </div>
                 <div style = {{paddingTop: '100px', textAlign: 'center'}}>
                   <LinearProgress mode="determinate" value={(this.state.currentStep + 1) * 20 } />
-                  <span style = {progressFont} >Step {this.state.currentStep + 1} out of 5 completed</span>
+                  <span style = {progressFont} >Step {this.state.currentStep + 1} out of 6 completed</span>
                 </div>
               </div>
             </div>
           </div>
         )
     }
+}
+
+RecommendationView.contextTypes = {
+    router: React.PropTypes.object.isRequired
 }
