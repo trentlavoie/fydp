@@ -123,7 +123,7 @@ export default class RecommendationView extends React.Component {
             selected: false
           },
           {
-            _id: 'Fuel Efficiency',
+            _id: 'Fuel Economy',
             value: 5,
             colorValue: -1,
             selected: false
@@ -409,14 +409,6 @@ export default class RecommendationView extends React.Component {
           </div>
         )
       } else if (this.state.currentStep === 4) {
-/*        0 - 20 KM
-20 - 40 KM
-40 - 60 KM
-60 - 80 KM
-80 - 100 KM
->100 KM */
-
-
 
         return (
           <div style = {typeContainer} > 
