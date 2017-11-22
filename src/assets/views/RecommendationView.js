@@ -219,7 +219,7 @@ export default class RecommendationView extends React.Component {
             selectedVehicleTypes.push(vehicleTypes[carIndex]);
           })
         }
-        
+
         var formData = new FormData();
         formData.append('file', this.refs.fileUpload.files[0])
         formData.append('budget', this.state.budgetAmount);
@@ -256,7 +256,7 @@ export default class RecommendationView extends React.Component {
             <FontIcon className="material-icons" style = {{fontSize: '80px'}}>shopping_cart</FontIcon>
             <div>
               <span style=  {headerFont}>My Budget</span>
-            </div>
+            </div> 
             <Slider
               min={5000}
               max={150000}

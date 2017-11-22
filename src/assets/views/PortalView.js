@@ -132,7 +132,7 @@ export default class PortalView extends React.Component {
                   <div style = {cardSectionStyle}>
                     <Icon name='car' size="huge" data-tip="Horse Power" />
                     <ReactTooltip />
-                    <span style = {cardSectionFont}>= 650W </span>
+                    <span style = {cardSectionFont}>= 650HP </span>
                   </div>
                   <div style = {cardSectionStyle}>
                     <Icon name='industry' size="huge" data-tip="Fuel Consumption Rating" />
@@ -201,7 +201,7 @@ export default class PortalView extends React.Component {
                 <div style = {cardSectionStyle}>
                   <Icon name='car' size="huge" data-tip="Horse Power" />
                   <ReactTooltip />
-                  <span style = {cardSectionFont}>= 450W </span>
+                  <span style = {cardSectionFont}>= 450HP </span>
                 </div>
                 <div style = {cardSectionStyle}>
                   <Icon name='industry' size="huge" data-tip="Fuel Consumption Rating" />
@@ -269,7 +269,7 @@ export default class PortalView extends React.Component {
                   <div style = {cardSectionStyle}>
                     <Icon name='car' size="huge" data-tip="Horse Power" />
                     <ReactTooltip />
-                    <span style = {cardSectionFont}>= 550W </span>
+                    <span style = {cardSectionFont}>= 550HP </span>
                   </div>
                   <div style = {cardSectionStyle}>
                     <Icon name='industry' size="huge" data-tip="Fuel Consumption Rating" />
