@@ -123,7 +123,7 @@ export default class RecommendationView extends React.Component {
             selected: false
           },
           {
-            _id: 'Fuel Efficiency',
+            _id: 'Fuel Economy',
             value: 5,
             colorValue: -1,
             selected: false
