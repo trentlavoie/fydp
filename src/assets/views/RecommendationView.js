@@ -8,8 +8,8 @@ import ReactBubbleChart from 'react-bubble-chart';
 import LinearProgress from 'material-ui/LinearProgress';
 import Paper from 'material-ui/Paper';
 import _ from 'lodash';
-import { Button } from 'semantic-ui-react';
 import request from 'superagent';
+import { Button } from 'semantic-ui-react';
 
 var colorLegend = [
   //reds from dark to light
@@ -123,7 +123,7 @@ export default class RecommendationView extends React.Component {
             selected: false
           },
           {
-            _id: 'Fuel Economy',
+            _id: 'Fuel Efficiency',
             value: 5,
             colorValue: -1,
             selected: false
