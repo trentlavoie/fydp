@@ -1,15 +1,15 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.DS_Store
 *.py[cod]
 *$py.class
 app.min.js
 # C extensions
 *.so
-
+*.lock
 # Distribution / packaging
 .Python
 env/
-build/
 develop-eggs/
 dist/
 downloads/

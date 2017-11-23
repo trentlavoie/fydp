@@ -1,0 +1,143 @@
+/* Center the contents of the bubble chart */
+.bubble-chart-container {
+  flex: 1;
+  margin-top: -5px;
+  height: 350px;
+  position: relative;
+  display: flex;
+  user-select: none;
+  justify-content: center;
+}
+
+.bubble-legend { pointer-events: none; }
+
+.sidebar-width {
+  width: 15% !important;
+}
+
+.panel-width {
+  position: absolute;
+  margin-left: 185px !important;
+  width: 100% !important;
+}
+
+.recommendation-panel-card {
+  height: 1100px;
+  width: 30% !important;
+}
+
+/* Center text in the circle, and hide any overflow */
+.bubble-chart-container .bubble-chart-text .bubble-label {
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 50%;
+  will-change: left, top, height, width;
+
+}
+
+/* Show the overflow when hovering over a label */
+.bubble-chart-container .bubble-chart-text .bubble-label:hover {
+  overflow: visible;
+  font-weight: bold;
+}
+
+/* Optional, but recommended - reduce the size of text on medium bubbles */
+.bubble-chart-container .bubble-chart-text .bubble-label.medium {
+  font-size: 0.8em;
+}
+
+/* Optional, but recommended - hide the text on small bubbles */
+.bubble-chart-container .bubble-chart-text .bubble-label.small {
+  font-size: 0;
+}
+
+.bubble-chart-container .bubble-chart-text .bubble-legend {
+  pointer-events: none;
+}
+/* Make sure to unhide the text when hovering */
+.bubble-chart-container .bubble-chart-text .bubble-label.small:hover {
+  font-size: 0.8em;
+}
+
+.bubble-chart-container .bubble-chart-text .bubble-label.medium {
+  border-style: solid;
+  border-color: rgb(0, 188, 212);
+}
+
+/*
+ * react-circular-progressbar styles
+ *
+ * All of the styles in this file are optional and configurable!
+ */
+
+ .CircularProgressbar-path { stroke: red; }
+ .CircularProgressbar-trail { stroke: gray; }
+ .CircularProgressbar-text { fill: yellow; }
+ .CircularProgressbar-background { fill: green; }
+
+.progressbar-green .CircularProgressbar-path { stroke: green !important; }
+.progressbar-yellow .CircularProgressbar-path { stroke: yellow !important; }
+.progressbar-red .CircularProgressbar-path { stroke: red !important; }
+
+
+
+.CircularProgressbar {
+  /*
+   * This fixes an issue where the CircularProgressbar svg has
+   * 0 width inside a "display: flex" container, and thus not visible.
+   *
+   * If you're not using "display: flex", you can remove this style.
+   */
+  width: 25%;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #3e98c7;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #d6d6d6;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: black;
+  font-size: 12px;
+  font-family: futura;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-background {
+  fill: #d6d6d6;
+}
+
+/*
+ * Sample background styles. Use these with e.g.:
+ *
+ *   <CircularProgressbar
+ *     className="CircularProgressbar-inverted"
+ *     background
+ *     percentage={50}
+ *   />
+ */
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-background {
+  fill: #3e98c7;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-text {
+  fill: #fff;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-path {
+  stroke: #fff;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-trail {
+  stroke: transparent;
+}
