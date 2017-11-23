@@ -46,7 +46,7 @@ export default class Navbar extends React.Component {
             </div>
           }>
           <div style = {{width: '90px', marginTop: '7px'}}>
-            <Avatar style={{marginTop: '2px'}} src='https://ih1.redbubble.net/image.195485388.5310/flat,800x800,075,f.jpg' />
+            <Avatar style={{marginTop: '2px'}} src='' />
             <IconMenu
               style = {{float: 'right'}}
               iconButtonElement={
