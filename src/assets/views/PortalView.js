@@ -7,6 +7,7 @@ import FontIcon from 'material-ui/FontIcon';
 import * as d3 from "d3";
 import {LineChart} from 'react-d3-basic'
 import ReactTooltip from 'react-tooltip';
+import CircularProgressbar from 'react-circular-progressbar';
 
 import {
   Table,
@@ -28,8 +29,15 @@ const cardSectionStyle = {
 
 const cardSectionFont = {
   fontSize: '30px',
-  fontFamily: 'futura'
+  fontFamily: 'futura',
 }
+
+const verticalAlignContainer = {
+  position: 'relative',
+  right: '10px'
+}
+
+const percentageFunction = (pct) => `${pct}% Match`;
 
 export default class PortalView extends React.Component {
 
@@ -92,7 +100,7 @@ export default class PortalView extends React.Component {
 
       var width = 500,
         height = 300,
-        margins = {left: 50, right: 130, top: 20, bottom: 50},
+        margins = {left: 130, right: 130, top: 20, bottom: 50},
         chartSeries = [
           {
             field: 'total',
@@ -116,30 +124,33 @@ export default class PortalView extends React.Component {
                 <CardMedia>
                   <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/performance/2018_camaro/01_images/intro/ca-2018-chevrolet-camaro-sports-car-mo-masthead-1480x551-01.jpg" alt="" />
                 </CardMedia>
-                <CardTitle title="2018 Chevrolet Camaro ZL1 2 Door Coupe"/>
+                <CardTitle style = {{fontFamily: 'futura'}} title="2018 Chevrolet Camaro ZL1 2 Door Coupe"/>
                 <CardText>
-                  <div style = {cardSectionStyle}>
-                    <Icon data-tip="Rating" name='star' size="huge">
-                    <ReactTooltip />
-                    </Icon>
-                    <span style = {cardSectionFont}>= 7/10 </span>
-                  </div>
-                  <div style = {cardSectionStyle}>
-                    <Icon name='dollar' size="huge" data-tip="Budget Price" />
-                    <ReactTooltip />
-                    <span style = {cardSectionFont}>= $28,000 </span>
-                  </div>
-                  <div style = {cardSectionStyle}>
-                    <img style = {{verticalAlign: 'middle'}} data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
-                    <ReactTooltip />
-                    <span style = {cardSectionFont}>= 650HP </span>
-                  </div>
-                  <div style = {cardSectionStyle} data-tip="Fuel Consumption">
-                    <i className="material-icons" style = {{fontSize: '70px', verticalAlign: 'middle'}}>local_gas_station</i>
-                    <span style = {{fontSize: '30px', fontFamily: 'futura'}}>= 30L </span>
-                    <ReactTooltip/>
-                  </div>
-                  <div style = {{textAlign: 'center', paddingTop: '10px'}}>
+                  <div style = {{textAlign: 'center', fontFamily: 'futura'}}>
+                    <div style = {cardSectionStyle}>
+                      <CircularProgressbar percentage={75} initialAnimation={true} textForPercentage={percentageFunction} className="progressbar-yellow"/>
+                    </div>
+                    <div style = {cardSectionStyle}>
+                      <Icon name='dollar' size="huge" data-tip="Budget Price" />
+                      <ReactTooltip />
+                      <span style = {cardSectionFont}>= $28,000 </span>
+                    </div>
+                    <div style = {cardSectionStyle}>
+                      <div style ={verticalAlignContainer}>
+                        <img style={{verticalAlign: 'middle'}} data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
+                        <ReactTooltip />
+                        <span style = {cardSectionFont}>= 650HP</span>
+                      </div>
+
+                    </div>
+                    <div style = {cardSectionStyle}>
+                      <div style ={{marginRight: '50px'}}>
+                        <i data-tip="Fuel Consumption" className="material-icons" style = {{fontSize: '70px', verticalAlign: 'middle'}}>local_gas_station</i>
+                        <span style = {{fontSize: '30px', fontFamily: 'futura'}}>= 30L </span>
+                        <ReactTooltip/>
+                      </div>
+                    </div>
+                    <div style = {{textAlign: 'center', paddingTop: '10px'}}>
                     <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
                     <LineChart
                       margins= {margins}
@@ -150,9 +161,9 @@ export default class PortalView extends React.Component {
                       x={x}
                       xScale={xScale}
                     />
+                    </div>
                   </div>
                 </CardText>
-
                 <CardActions actAsExpander={true}>
                   <div style = {{textAlign: 'center'}}>
                     {!this.state.firstCardExpand && <Icon name = 'chevron down' size="large"/>}
@@ -184,41 +195,45 @@ export default class PortalView extends React.Component {
               <CardMedia>
                 <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/cars/2017_malibu/01_images/ca-2017-chevrolet-malibu-mid-size-sedan-mo-01_perspective_img_1.jpg" alt="" />
               </CardMedia>
-              <CardTitle title="2017 Cheverolet Malibu 4 Door Sedan">
+              <CardTitle style = {{fontFamily: 'futura'}} title="2017 Cheverolet Malibu 4 Door Sedan">
               </CardTitle>
               <CardText>
-                <div style = {cardSectionStyle}>
-                  <Icon data-tip="Rating" name='star' size="huge">
-                  <ReactTooltip />
-                  </Icon>
-                  <span style = {cardSectionFont}>= 6.5/10 </span>
-                </div>
-                <div style = {cardSectionStyle}>
-                  <Icon name='dollar' size="huge" data-tip="Budget Price" />
-                  <ReactTooltip />
-                  <span style = {cardSectionFont}>= $20,000 </span>
-                </div>
-                <div style = {cardSectionStyle}>
-                  <img style = {{verticalAlign: 'middle'}} data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
-                  <ReactTooltip />
-                  <span style = {cardSectionFont}>= 450HP </span>
-                </div>
-                <div style = {cardSectionStyle}>
-                  <i data-tip="Fuel Consumption" className="material-icons" style = {{fontSize: '70px', verticalAlign: 'middle'}}>local_gas_station</i>
-                  <span style = {{fontSize: '30px', fontFamily: 'futura'}}>= 50L </span>
-                  <ReactTooltip/>
-                </div>
-                <div style = {{textAlign: 'center', paddingTop: '10px'}}>
-                <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
-                <LineChart
-                  margins= {margins}
-                  data={chartDataMalibu}
-                  width={width}
-                  height={height}
-                  chartSeries={chartSeries}
-                  x={x}
-                  xScale={xScale}
-                />
+                <div style = {{textAlign: 'center', fontFamily: 'futura'}}>
+                  <div style = {cardSectionStyle}>
+                    <CircularProgressbar percentage={85} initialAnimation={true} textForPercentage={percentageFunction} className="progressbar-green"/>
+                  </div>
+                  <div style = {cardSectionStyle}>
+                    <Icon name='dollar' size="huge" data-tip="Budget Price" />
+                    <ReactTooltip />
+                    <span style = {cardSectionFont}>= $20,000 </span>
+                  </div>
+                  <div style = {cardSectionStyle}>
+                    <div style ={verticalAlignContainer}>
+                      <img style={{verticalAlign: 'middle'}} data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
+                      <ReactTooltip />
+                      <span style = {cardSectionFont}>= 450HP</span>
+                    </div>
+
+                  </div>
+                  <div style = {cardSectionStyle}>
+                    <div style ={{marginRight: '50px'}}>
+                      <i data-tip="Fuel Consumption" className="material-icons" style = {{fontSize: '70px', verticalAlign: 'middle'}}>local_gas_station</i>
+                      <span style = {{fontSize: '30px', fontFamily: 'futura'}}>= 50L </span>
+                      <ReactTooltip/>
+                    </div>
+                  </div>
+                  <div style = {{textAlign: 'center', paddingTop: '10px'}}>
+                  <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
+                  <LineChart
+                    margins= {margins}
+                    data={chartDataMalibu}
+                    width={width}
+                    height={height}
+                    chartSeries={chartSeries}
+                    x={x}
+                    xScale={xScale}
+                  />
+                  </div>
                 </div>
               </CardText>
 
@@ -252,41 +267,45 @@ export default class PortalView extends React.Component {
                 <CardMedia>
                   <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/cars/2017_impala/01_images/ca-2017-chevrolet-impala-full-size-sedan-intro-1480x551-01.jpg" alt="" />
                 </CardMedia>
-                <CardTitle title="2017 Cheverolet Impala 4 Door Sedan">
+                <CardTitle  style = {{fontFamily: 'futura'}} title="2017 Cheverolet Impala 4 Door Sedan">
                 </CardTitle>
                 <CardText>
-                  <div style = {cardSectionStyle}>
-                    <Icon data-tip="Rating" name='star' size="huge">
-                    <ReactTooltip />
-                    </Icon>
-                    <span style = {cardSectionFont}>= 7.25/10 </span>
-                  </div>
-                  <div style = {cardSectionStyle}>
-                    <Icon name='dollar' size="huge" data-tip="Budget Price" />
-                    <ReactTooltip />
-                    <span style = {cardSectionFont}>= $30,000 </span>
-                  </div>
-                  <div style = {cardSectionStyle}>
-                    <img style = {{verticalAlign: 'middle'}} data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
-                    <ReactTooltip />
-                    <span style = {cardSectionFont}>= 550HP </span>
-                  </div>
-                  <div style = {cardSectionStyle}>
-                  <i className="material-icons" style = {{fontSize: '70px', verticalAlign: 'middle'}}>local_gas_station</i>
-                  <span style = {{fontSize: '30px', fontFamily: 'futura'}}>= 25L </span>
-                    <ReactTooltip/>
-                  </div>
-                  <div style = {{textAlign: 'center', paddingTop: '10px'}}>
-                  <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
-                  <LineChart
-                    margins= {margins}
-                    data={chartDataMalibu}
-                    width={width}
-                    height={height}
-                    chartSeries={chartSeries}
-                    x={x}
-                    xScale={xScale}
-                  />
+                  <div style = {{textAlign: 'center', fontFamily: 'futura'}}>
+                    <div style = {cardSectionStyle}>
+                      <CircularProgressbar percentage={65} initialAnimation={true} textForPercentage={percentageFunction} className="progressbar-red"/>
+                    </div>
+                    <div style = {cardSectionStyle}>
+                      <Icon name='dollar' size="huge" data-tip="Budget Price" />
+                      <ReactTooltip />
+                      <span style = {cardSectionFont}>= $30,000 </span>
+                    </div>
+                    <div style = {cardSectionStyle}>
+                      <div style ={verticalAlignContainer}>
+                        <img style={{verticalAlign: 'middle'}} data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
+                        <ReactTooltip />
+                        <span style = {cardSectionFont}>= 550HP</span>
+                      </div>
+
+                    </div>
+                    <div style = {cardSectionStyle}>
+                      <div style ={{marginRight: '50px'}}>
+                        <i data-tip="Fuel Consumption" className="material-icons" style = {{fontSize: '70px', verticalAlign: 'middle'}}>local_gas_station</i>
+                        <span style = {{fontSize: '30px', fontFamily: 'futura'}}>= 25L </span>
+                        <ReactTooltip/>
+                      </div>
+                    </div>
+                    <div style = {{textAlign: 'center', paddingTop: '10px'}}>
+                    <span style = {{fontFamily: 'futura', fontSize: '20px'}}>Fuel Consumption Over Time </span>
+                    <LineChart
+                      margins= {margins}
+                      data={chartDataMalibu}
+                      width={width}
+                      height={height}
+                      chartSeries={chartSeries}
+                      x={x}
+                      xScale={xScale}
+                    />
+                    </div>
                   </div>
                 </CardText>
 
