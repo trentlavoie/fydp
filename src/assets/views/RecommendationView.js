@@ -356,25 +356,25 @@ export default class RecommendationView extends React.Component {
 
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(1) >= 0 ? 5 : 1}>
               <div id="1" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/48/48688.svg"></img>
                 <div>Any</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(2) >= 0 || this.state.selectedCarType.indexOf(1) >= 0 ? 5 : 1}>
               <div id="2" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/city-car-128.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/55/55183.svg"></img>
                 <div>Hatchback</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(3) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="3" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/sedan-128.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/55/55283.svg"></img>
                 <div>Sedan</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(4) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="4" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/city-car-128.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/55/55280.svg"></img>
                 <div>SUV</div>
               </div>
             </Paper>
@@ -386,25 +386,25 @@ export default class RecommendationView extends React.Component {
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(6) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="6" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/minivan-128.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/55/55349.svg"></img>
                 <div>Van</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(7) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="7" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/55/55180.svg"></img>
                 <div>Coupe</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(8) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="8" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/cabriolet-128.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/55/55195.svg"></img>
                 <div>Convertible</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(9) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="9" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/truck-128.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/46/46007.svg"></img>
                 <div>Truck</div>
               </div>
             </Paper>
@@ -505,6 +505,7 @@ export default class RecommendationView extends React.Component {
                 </div>
               </div>
             </div>
+            <div style = {{marginTop: '300px', textAlign: 'center', fontSize: '10px'}}>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
           </div>
         )
     }
