@@ -75,9 +75,17 @@ const inlinePaperDivStyle = {
 
 const typeContainer = {
   textAlign: 'center',
+  width: '700px',
   height: '200px',
-  width: '1500px',
-  marginLeft: '-250px'
+  marginLeft: '120px',
+  marginBottom: '50px'
+}
+
+const distanceContainer = {
+
+    textAlign: 'center',
+    width: '1000px',
+    height: '200px'
 }
 
 const imageStyle = {
@@ -413,7 +421,7 @@ export default class RecommendationView extends React.Component {
       } else if (this.state.currentStep === 3) {
 
         return (
-          <div style = {typeContainer} > 
+          <div style = {distanceContainer} > 
             <FontIcon className="material-icons" style = {fontIconStyle}>near_me</FontIcon>
             <div style = {{marginTop: '-100px'}}>
               <span style = {headerFont}>Travelling Distance</span>
