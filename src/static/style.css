@@ -11,9 +11,19 @@
 
 .bubble-legend { pointer-events: none; }
 
+.sidebar-width {
+  width: 15% !important;
+}
+
+.panel-width {
+  position: absolute;
+  margin-left: 185px !important;
+  width: 100% !important;
+}
+
 .recommendation-panel-card {
   height: 1100px;
-  width: 27% !important;
+  width: 30% !important;
 }
 
 /* Center text in the circle, and hide any overflow */

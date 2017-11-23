@@ -107,7 +107,7 @@ export default class PortalView extends React.Component {
         xScale = 'time';
 
       return (
-        <Segment basic>
+        <Segment basic className="panel-width">
         <Header as='h3'>Recommendations & Comparison for Run: {this.state.runId}</Header>
         <Grid columns={3} divided>
           <Grid.Row>
@@ -327,7 +327,7 @@ export default class PortalView extends React.Component {
             <Navbar selectedIndex={1}/>
             <div style = {{marginTop: '-5px', height: '1300px'}}>
             <Sidebar.Pushable as={Segment}>
-            <Sidebar as={Menu} animation='slide along' width='wide' visible={true} icon='labeled' vertical inverted>
+            <Sidebar as={Menu} animation='slide along' visible={true} icon='labeled' vertical inverted>
               <Menu.Item name='home'>
                 <Icon name='home' />
                 Main
@@ -362,9 +362,7 @@ export default class PortalView extends React.Component {
                 </Menu.Menu>
               </Menu.Item>
             </Sidebar>
-            <Sidebar.Pusher>
               {this.renderContentLayout()}
-            </Sidebar.Pusher>
           </Sidebar.Pushable>
           </div>
           </div>
