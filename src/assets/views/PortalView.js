@@ -116,7 +116,7 @@ export default class PortalView extends React.Component {
                 <CardMedia>
                   <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/performance/2018_camaro/01_images/intro/ca-2018-chevrolet-camaro-sports-car-mo-masthead-1480x551-01.jpg" alt="" />
                 </CardMedia>
-                <CardTitle title="2018 Chevrolet Camaro ZL1 2 Door Coupe RWD ZL1"/>
+                <CardTitle title="2018 Chevrolet Camaro ZL1 2 Door Coupe"/>
                 <CardText>
                   <div style = {cardSectionStyle}>
                     <Icon data-tip="Rating" name='star' size="huge">
@@ -184,7 +184,7 @@ export default class PortalView extends React.Component {
               <CardMedia>
                 <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/cars/2017_malibu/01_images/ca-2017-chevrolet-malibu-mid-size-sedan-mo-01_perspective_img_1.jpg" alt="" />
               </CardMedia>
-              <CardTitle title="2017 Cheverolet Malibu 4 Door Sedan ZL1">
+              <CardTitle title="2017 Cheverolet Malibu 4 Door Sedan">
               </CardTitle>
               <CardText>
                 <div style = {cardSectionStyle}>
@@ -252,7 +252,7 @@ export default class PortalView extends React.Component {
                 <CardMedia>
                   <img src="http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/cars/2017_impala/01_images/ca-2017-chevrolet-impala-full-size-sedan-intro-1480x551-01.jpg" alt="" />
                 </CardMedia>
-                <CardTitle title="2017 Cheverolet Impala 4 Door Sedan ZL1">
+                <CardTitle title="2017 Cheverolet Impala 4 Door Sedan">
                 </CardTitle>
                 <CardText>
                   <div style = {cardSectionStyle}>
