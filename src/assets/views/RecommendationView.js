@@ -13,7 +13,7 @@ import { Button } from 'semantic-ui-react';
 
 var colorLegend = [
   //reds from dark to light
-  {color: "#67000d", text: 'Negative', textColor: "#ffffff"}, "#a50f15", "#cb181d", "#ef3b2c", "#fb6a4a", "#fc9272", "#fcbba1", "#fee0d2",
+  {color: "#ffffff", text: 'Negative', textColor: "#000000"}, "#a50f15", "#cb181d", "#ef3b2c", "#fb6a4a", "#fc9272", "#fcbba1", "#fee0d2",
   //neutral grey
   {color: "#f0f0f0", text: 'Neutral'},
   // blues from light to dark
@@ -131,7 +131,7 @@ export default class RecommendationView extends React.Component {
             selected: false
           },
           {
-            _id: 'Fuel Economy',
+            _id: 'Fuel  Economy',
             value: 5,
             colorValue: -1,
             selected: false
