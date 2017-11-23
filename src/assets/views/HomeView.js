@@ -2,16 +2,17 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import RaisedButton from 'material-ui/RaisedButton';
 
-const backgroundImage = 'https://i.stack.imgur.com/jRLAt.png';
+const backgroundImage = 'https://images.pexels.com/photos/163848/road-mountains-sunset-path-163848.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb';
 const style = {
   margin: 12,
 };
 
 const backgroundStyle = {
-  backgroundImage: `url(${backgroundImage})`,
+  background: `url(${backgroundImage}) no-repeat`,
   height: '1000px',
   display: 'flex',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  backgroundSize: 'cover'
 }
 
 export default class Home extends React.Component {
