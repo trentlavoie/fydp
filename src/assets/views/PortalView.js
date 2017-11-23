@@ -130,7 +130,7 @@ export default class PortalView extends React.Component {
                     <span style = {cardSectionFont}>= $28,000 </span>
                   </div>
                   <div style = {cardSectionStyle}>
-                    <img data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
+                    <img style = {{verticalAlign: 'middle'}} data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
                     <ReactTooltip />
                     <span style = {cardSectionFont}>= 650HP </span>
                   </div>
@@ -199,7 +199,7 @@ export default class PortalView extends React.Component {
                   <span style = {cardSectionFont}>= $20,000 </span>
                 </div>
                 <div style = {cardSectionStyle}>
-                  <img data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
+                  <img style = {{verticalAlign: 'middle'}} data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
                   <ReactTooltip />
                   <span style = {cardSectionFont}>= 450HP </span>
                 </div>
@@ -267,7 +267,7 @@ export default class PortalView extends React.Component {
                     <span style = {cardSectionFont}>= $30,000 </span>
                   </div>
                   <div style = {cardSectionStyle}>
-                    <img data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
+                    <img style = {{verticalAlign: 'middle'}} data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
                     <ReactTooltip />
                     <span style = {cardSectionFont}>= 550HP </span>
                   </div>
