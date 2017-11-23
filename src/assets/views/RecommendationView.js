@@ -34,20 +34,20 @@ const centerContainer = {
 }
 
 const headerFont = {
-  fontFamily: 'Futura',
+  fontFamily: 'Verdana',
   fontSize: '20px',
   color: 'teal'
 }
 
 const progressFont = {
-  fontFamily: 'Futura',
+  fontFamily: 'Verdana',
   fontSize: '20px',
   color: 'teal',
   paddingTop: '50px'
 }
 
 const captionFont = {
-  fontFamily: 'Futura',
+  fontFamily: 'Verdana',
   fontSize: '15px',
   color: 'teal'
 }
@@ -112,7 +112,7 @@ export default class RecommendationView extends React.Component {
       this.state = {
         currentStep: 0,
         location: '',
-        budgetAmount: 5000,
+        budgetAmount: 20000,
         selectedCarType: [],
         selectedDistanceTravelled: 0,
         file: null,
@@ -316,19 +316,19 @@ export default class RecommendationView extends React.Component {
       } else if (this.state.currentStep === 0) {
         return (
           <div style = {centerContainer}> 
-            <FontIcon className="material-icons" style = {{fontSize: '80px'}}>shopping_cart</FontIcon>
+            <FontIcon className="material-icons" style = {{fontSize: '60px'}}>description</FontIcon>
             <div>
-              <span style=  {headerFont}>My Budget</span>
+              <span style=  {headerFont}>Budget</span>
             </div>
             <Slider
-              min={5000}
-              max={150000}
-              defaultValue={10000}
-              step={1000}
+              min={15000}
+              max={50000}
+              defaultValue={20000}
+              step={5000}
               value={this.state.budgetAmount}
               onChange={this.handleSliderValue}
             />
-            <span style = {captionFont}>Your current selected amount in $: {this.prettyAmount()}</span>
+            <span style = {captionFont}>Your budget is ${this.prettyAmount()}</span>
           </div>
         )
       } else if (this.state.currentStep === 1) {
