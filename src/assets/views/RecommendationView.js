@@ -253,9 +253,9 @@ export default class RecommendationView extends React.Component {
       }
 
       this.incrementStepCounter = () => {
-        if (this.state.currentStep !== 5 ) {
+        if (this.state.currentStep !== 4 ) {
           this.setState({currentStep: this.state.currentStep + 1})
-        } else if (this.state.currentStep === 5) {
+        } else if (this.state.currentStep === 4) {
           this.postPreferenceData();
           this.context.router.push('/portal');
         }
@@ -293,7 +293,8 @@ export default class RecommendationView extends React.Component {
     }
 
     renderCurrentStep() {
-      if (this.state.currentStep === 0) {
+      if (this.state.currentStep === -1) {
+        /*
         return (
           <div style = {centerContainer}> 
             <FontIcon className="material-icons" style = {{fontSize: '80px'}}>map</FontIcon>
@@ -303,7 +304,8 @@ export default class RecommendationView extends React.Component {
             <Geosuggest onSuggestSelect={this.onLocationSelect} initialValue={this.state.location}/>
           </div>
         )
-      } else if (this.state.currentStep === 1) {
+        */
+      } else if (this.state.currentStep === 0) {
         return (
           <div style = {centerContainer}> 
             <FontIcon className="material-icons" style = {{fontSize: '80px'}}>shopping_cart</FontIcon>
@@ -321,7 +323,7 @@ export default class RecommendationView extends React.Component {
             <span style = {captionFont}>Your current selected amount in $: {this.prettyAmount()}</span>
           </div>
         )
-      } else if (this.state.currentStep === 2) {
+      } else if (this.state.currentStep === 1) {
 
         return (
           <div style = {centerContainer} > 
@@ -343,7 +345,7 @@ export default class RecommendationView extends React.Component {
           />
           </div>
         )
-      } else if (this.state.currentStep === 3) {
+      } else if (this.state.currentStep === 2) {
 
         return (
           <div style = {typeContainer} > 
@@ -360,19 +362,19 @@ export default class RecommendationView extends React.Component {
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(2) >= 0 || this.state.selectedCarType.indexOf(1) >= 0 ? 5 : 1}>
               <div id="2" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/city-car-128.png"></img>
                 <div>Hatchback</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(3) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="3" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/sedan-128.png"></img>
                 <div>Sedan</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(4) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="4" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/city-car-128.png"></img>
                 <div>SUV</div>
               </div>
             </Paper>
@@ -384,8 +386,8 @@ export default class RecommendationView extends React.Component {
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(6) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="6" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
-                <div>MUV</div>
+                <img width={50} height={50} style = {imageStyle} src = "https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/minivan-128.png"></img>
+                <div>Van</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(7) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
@@ -396,19 +398,19 @@ export default class RecommendationView extends React.Component {
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(8) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="8" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/cabriolet-128.png"></img>
                 <div>Convertible</div>
               </div>
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(9) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="9" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
-                <div>Smart Car</div>
+                <img width={50} height={50} style = {imageStyle} src = "https://cdn4.iconfinder.com/data/icons/car-silhouettes/1000/truck-128.png"></img>
+                <div>Truck</div>
               </div>
             </Paper>
           </div>
         )
-      } else if (this.state.currentStep === 4) {
+      } else if (this.state.currentStep === 3) {
 
         return (
           <div style = {typeContainer} > 
@@ -454,7 +456,7 @@ export default class RecommendationView extends React.Component {
             </Paper>
           </div>
         )
-      } else if (this.state.currentStep === 5) {
+      } else if (this.state.currentStep === 4) {
         return (
           <div style = {centerContainer}> 
             <FontIcon className="material-icons" style = {{fontSize: '80px'}}>file_upload</FontIcon>
@@ -499,7 +501,7 @@ export default class RecommendationView extends React.Component {
                 </div>
                 <div style = {{paddingTop: '100px', textAlign: 'center'}}>
                   <LinearProgress mode="determinate" value={(this.state.currentStep + 1) * 20 } />
-                  <span style = {progressFont} >Step {this.state.currentStep + 1} out of 6 completed</span>
+                  <span style = {progressFont} >Step {this.state.currentStep + 1} out of 5 completed</span>
                 </div>
               </div>
             </div>

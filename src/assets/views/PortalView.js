@@ -130,13 +130,13 @@ export default class PortalView extends React.Component {
                     <span style = {cardSectionFont}>= $28,000 </span>
                   </div>
                   <div style = {cardSectionStyle}>
-                    <Icon name='car' size="huge" data-tip="Horse Power" />
+                    <img data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
                     <ReactTooltip />
                     <span style = {cardSectionFont}>= 650HP </span>
                   </div>
-                  <div style = {cardSectionStyle}>
-                    <Icon name='industry' size="huge" data-tip="Fuel Consumption Rating" />
-                    <span style = {cardSectionFont}>= 50L </span>
+                  <div style = {cardSectionStyle} data-tip="Fuel Consumption">
+                    <i className="material-icons" style = {{fontSize: '70px', verticalAlign: 'middle'}}>local_gas_station</i>
+                    <span style = {{fontSize: '30px', fontFamily: 'futura'}}>= 30L </span>
                     <ReactTooltip/>
                   </div>
                   <div style = {{textAlign: 'center', paddingTop: '10px'}}>
@@ -199,13 +199,13 @@ export default class PortalView extends React.Component {
                   <span style = {cardSectionFont}>= $20,000 </span>
                 </div>
                 <div style = {cardSectionStyle}>
-                  <Icon name='car' size="huge" data-tip="Horse Power" />
+                  <img data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
                   <ReactTooltip />
                   <span style = {cardSectionFont}>= 450HP </span>
                 </div>
                 <div style = {cardSectionStyle}>
-                  <Icon name='industry' size="huge" data-tip="Fuel Consumption Rating" />
-                  <span style = {cardSectionFont}>= 20L </span>
+                  <i data-tip="Fuel Consumption" className="material-icons" style = {{fontSize: '70px', verticalAlign: 'middle'}}>local_gas_station</i>
+                  <span style = {{fontSize: '30px', fontFamily: 'futura'}}>= 50L </span>
                   <ReactTooltip/>
                 </div>
                 <div style = {{textAlign: 'center', paddingTop: '10px'}}>
@@ -267,13 +267,13 @@ export default class PortalView extends React.Component {
                     <span style = {cardSectionFont}>= $30,000 </span>
                   </div>
                   <div style = {cardSectionStyle}>
-                    <Icon name='car' size="huge" data-tip="Horse Power" />
+                    <img data-tip="Horse Power" width="70" height="50" src = "https://www.fcausfleet.com/content/dam/fca-fleet/na/fleet/en_us/why-fca-fleet/blurbrailicon/FCA-SDP_icons_Horsepower.png.fleetimage.1440.png"/>
                     <ReactTooltip />
                     <span style = {cardSectionFont}>= 550HP </span>
                   </div>
                   <div style = {cardSectionStyle}>
-                    <Icon name='industry' size="huge" data-tip="Fuel Consumption Rating" />
-                    <span style = {cardSectionFont}>= 25L </span>
+                  <i className="material-icons" style = {{fontSize: '70px', verticalAlign: 'middle'}}>local_gas_station</i>
+                  <span style = {{fontSize: '30px', fontFamily: 'futura'}}>= 25L </span>
                     <ReactTooltip/>
                   </div>
                   <div style = {{textAlign: 'center', paddingTop: '10px'}}>
