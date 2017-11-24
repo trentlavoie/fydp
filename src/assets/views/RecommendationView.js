@@ -241,6 +241,9 @@ export default class RecommendationView extends React.Component {
             modifiedCarTypeArr.splice(modifiedCarTypeArr.indexOf(id), 1);
             this.setState({selectedCarType: modifiedCarTypeArr})
           } else {
+            if (id === 1) {
+              modifiedCarTypeArr = [];
+            }
             modifiedCarTypeArr.push(id);
             this.setState({selectedCarType: modifiedCarTypeArr})
           }
