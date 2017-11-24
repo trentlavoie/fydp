@@ -79,11 +79,7 @@
  .CircularProgressbar-text { fill: yellow; }
  .CircularProgressbar-background { fill: green; }
 
-.progressbar-green .CircularProgressbar-path { stroke: green !important; }
-.progressbar-yellow .CircularProgressbar-path { stroke: yellow !important; }
-.progressbar-red .CircularProgressbar-path { stroke: red !important; }
-
-
+.progressbar-green .CircularProgressbar-path { stroke: #21C064 !important; }
 
 .CircularProgressbar {
   /*

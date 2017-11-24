@@ -128,7 +128,7 @@ export default class PortalView extends React.Component {
                 <CardText>
                   <div style = {{textAlign: 'center', fontFamily: 'futura'}}>
                     <div style = {cardSectionStyle}>
-                      <CircularProgressbar percentage={75} initialAnimation={true} textForPercentage={percentageFunction} className="progressbar-yellow"/>
+                      <CircularProgressbar percentage={75} initialAnimation={true} textForPercentage={percentageFunction} className="progressbar-green"/>
                     </div>
                     <div style = {cardSectionStyle}>
                       <Icon name='dollar' size="huge" data-tip="Budget Price" />
@@ -272,7 +272,7 @@ export default class PortalView extends React.Component {
                 <CardText>
                   <div style = {{textAlign: 'center', fontFamily: 'futura'}}>
                     <div style = {cardSectionStyle}>
-                      <CircularProgressbar percentage={65} initialAnimation={true} textForPercentage={percentageFunction} className="progressbar-red"/>
+                      <CircularProgressbar percentage={65} initialAnimation={true} textForPercentage={percentageFunction} className="progressbar-green"/>
                     </div>
                     <div style = {cardSectionStyle}>
                       <Icon name='dollar' size="huge" data-tip="Budget Price" />
