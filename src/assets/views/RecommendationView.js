@@ -15,7 +15,7 @@ var colorLegend = [
   //reds from dark to light
   {color: "#ffffff", text: 'Negative', textColor: "#000000"}, "#a50f15", "#cb181d", "#ef3b2c", "#fb6a4a", "#fc9272", "#fcbba1", "#fee0d2",
   //neutral grey
-  {color: "#f0f0f0", text: 'Neutral'},
+  {color: "#7F7F7F", text: 'Neutral', textColor: 'white'},
   // blues from light to dark
   "#deebf7", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5", "#08519c", {color: "#08306b", text: 'Positive', textColor: "#ffffff"}
 ];
@@ -206,11 +206,20 @@ export default class RecommendationView extends React.Component {
         newPrefenceArr.forEach((preference) => {
           if (preference._id === data._id) {
             if (preference.clicked < 2) {
+
+              if (preference.clicked === 0) {
+                preference.selected = false;
+                preference.colorValue = 0;
+              } else {
+                preference.selected = true;
+              }
+
               preference.clicked ++;
               preference.value = preference.value * 1.2;
-              preference.selected = true;
+
             } else {
               preference.clicked = 0;
+              preference.colorValue = -1;
               preference.value = 5;
               preference.selected = false;
             }
