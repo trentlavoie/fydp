@@ -388,7 +388,7 @@ export default class RecommendationView extends React.Component {
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(5) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="5" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
+                <img width={50} height={50} style = {imageStyle} src = "images/crossover.png"></img>
                 <div>Crossover</div>
               </div>
             </Paper>

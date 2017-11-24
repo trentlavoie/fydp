@@ -33,7 +33,7 @@ export default class Navbar extends React.Component {
           <AppBar iconElementLeft={
             <div style = {{width: '500px'}}>
             <div style = {{position: 'relative', top: '5px', left: '10px', height: '1px'}}>
-              <FontIcon className="material-icons" style = {{fontSize: '40px'}}>map</FontIcon>
+              <img src = "images/white_project_vantage_logo.png" width="40" height="30"/>
             </div>
 
             <div style = {{marginLeft: '70px'}}>
