@@ -5,6 +5,7 @@ from werkzeug import secure_filename
 from flaskext.mysql import MySQL
 import json
 import os
+from recommendation import recommendation_process
 
 webpack = Webpack()
 
@@ -58,6 +59,21 @@ def process_preference_data():
     budget = request.form['budget'];
     car_types = request.form['car_types']
     preferences = json.loads(request.form['preferences'])
+
+    filter_preferences = []
+
+    for preference in preferences:
+        parameters = {}
+
+        if 'clicked' in preference:
+            parameters['car_attribute'] = preference['_id']
+            parameters['clicked'] = preference['clicked']
+            filter_preferences.append(parameters)
+
+    filter_data = preferences
+
+    #Query for car data here based on car_types and budget (we'll use preferences later)
+    #recommendation_process(preferences, [])
 
     return 'None'
 
