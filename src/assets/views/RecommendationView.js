@@ -110,7 +110,7 @@ export default class RecommendationView extends React.Component {
     constructor() {
       super();
       this.state = {
-        currentStep: 0,
+        currentStep: 4,
         location: '',
         budgetAmount: 20000,
         selectedCarType: [],
@@ -296,7 +296,8 @@ export default class RecommendationView extends React.Component {
         var formData = new FormData();
         formData.append('file', this.refs.fileUpload.files[0])
         formData.append('budget', this.state.budgetAmount);
-        formData.append('location', this.state.location);
+        formData.append('preferences', JSON.stringify(this.state.preferences))
+        formData.append('car_types', JSON.stringify(selectedVehicleTypes))
 
         request
           .post('http://localhost:3001/process')
