@@ -29,6 +29,9 @@ mysql.init_app(app)
 
 conn = mysql.connect()
 cursor = conn.cursor()
+#cursor.execute("SELECT * FROM survey")
+#data = cursor.fetchall()
+#print(data)
 
 params = {
     'DEBUG': True,
@@ -71,7 +74,6 @@ def process_preference_data():
             filter_preferences.append(parameters)
 
     filter_data = preferences
-
     #Query for car data here based on car_types and budget (we'll use preferences later)
     #recommendation_process(preferences, [])
 
