@@ -1,0 +1,45 @@
+Brand,Body,Model,Year,Base Price,Horsepower,Torque,Acceleration time,Braking Distance,Road Holding (lateral acceleration),Fuel Economy,Fuel Economy,Fuel Economy,Fuel Economy,Fuel Economy,Fuel Economy
+Units,,,,,hp @ rpm,lb-ft @ rpm,Zero to 60 mph (s),70-0 mph (ft),300-ft-dia skidpad: ,EPA combined (mpg),city (mpg),highway (mpg),Combined (L/100km),City (L/100km),Highway (L/100km)
+Sedan,,,,,,,,,,,,,,,
+Audi,Sedan,A4,2017,51800,252 hp @ 6000 rpm,273 lb-ft @ 1600 rpm,5.2,155 ft,0.90 g,27,24,31,10.46,11.77,9.11
+BMW,Sedan,330i,2017,45900,248 hp @ 5200 rpm,258 lb-ft @ 1450 rpm,5.4,168 ft,0.83 g,27,23,34,10.46,12.28,8.31
+Infinity,Sedan,Q50,2018,39900,"208 hp @ 5,500 rpm",258 lb-ft @ 1500-3500 rpm,4.5-6.9,110 ft (60-0 mph),0.87 g (avg) (no skidpad data),25,23,30,11.30,12.28,9.42
+Lexus,Sedan,IS 300,2017,41050,306 hp @ 6400 rpm,277 lb-ft @ 4800 rpm,6,176 ft,0.84 g,22,19,28,12.84,14.87,10.09
+BMW,Sedan,440i,2018,56850,320 hp @ 5500 rpm,330 lb-ft @ 1380 rpm,4.4,166 ft,0.86 g,25,21,32,11.30,13.45,8.83
+Mercedes,Sedan,C300,2018,44700,241 hp @ 5500 rpm,273 lb-ft @ 1300 rpm,6.1,158 ft,0.94 g,25,22,29,11.30,12.84,9.74
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+Volvo,SUV,XC90,2018,59150,316 @ 5700,295 @ 2200,6,167 ft,0.84 g,23,20,27,12.28,14.13,10.46
+Lexus,SUV,RX 350,2017,56500,295 @ 6300,267 @ 4700,6.8,123 ft (60-0 mph),0.79 g (avg) (no skidpad data),22,29,26,12.84,9.74,10.87
+BMW,SUV,X5,2016,69950,"300 @ 5,800–6,400","300 @ 1,200 - 5,000",6.2,165 ft, 0.82 g,24,23,25,11.77,12.28,11.30
+Audi,SUV,Q7,2017,74750,252 hp @ 6000 rpm,273 lb-ft @ 1600 rpm,7,186 ft,0.80 g,22,20,25,12.84,14.13,11.30
+Mercedes Benz,SUV,GLC 300,2017,50300,241 hp @ 5500 rpm,273 lb-ft @ 1300 rpm,5.9,110 ft (60-0 mph),0.83 g (avg) (no skidpad data),24,21,28,11.77,13.45,10.09
+Range Rover,SUV,Velar,2018,62000,380 hp @ 6500 rpm,332 lb-ft @ 3500 rpm,5.7,175 ft,0.83 g,20,18,24,14.13,15.69,11.77
+,,,,,,,,,,,,,,,
+"Cheaper <$30,000",,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+Honda,Sedan,Civic,2018,19990,180 hp @ 5500 rpm,177 lb-ft @ 1900 rpm,7,160 ft,0.93 g,33,30,39,8.56,9.42,7.24
+Mazda,Sedan,3,2018,15900,184 hp @ 5700 rpm,185 lb-ft @ 3250 rpm,7,165 ft,0.85 g,30,27,36,9.42,10.46,7.85
+Toyota,Sedan,Camry,2018,35845,301 hp @ 6600 rpm,267 lb-ft @ 4700 rpm,5.8,167 ft,0.87 g,26,22,32,10.87,12.84,8.83
+Kia ,Sedan,Forte ,2017,15495,"147 hp @ 6,200 rpm","132 lb.-ft. @ 4,500 rpm",8.7,127 ft (60-0 mph),0.81 g (avg) (no skidpad data),32,29,38,8.83,9.74,7.43
+Hyundai ,Sedan,Elantra ,2017,15999,128 hp @ 5500 rpm,156 lb-ft @ 1400 rpm,7.8,173 ft,0.80 g,36,32,40,7.85,8.83,7.06
+Chevy ,Hatchback,Cruze ,2018,16395,137 hp @ 3750 rpm,240 lb-ft @ 1500 rpm,8.2,165 ft,0.90 g,35,29,48,8.07,9.74,5.89
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+Honda,Hatchback,Fit,2018,15190,130 hp @ 6600 rpm,114 lb-ft @ 4600 rpm,8.2,179 ft,0.81 g,31,29,36,9.11,9.74,7.85
+Toyota ,Hatchback,Prius,2017,27480,121@5200,"105 lb·ft @ 3,600 rpm",10.5,180 ft,0.82 g,52,54,50,5.43,5.23,5.65
+VW ,Hatchback,Golf,2017,19595,170 hp @ 4500 rpm,199 lb-ft @ 1600 rpm,7.3,168 ft,0.84 g,29,25,35,9.74,11.30,8.07
+Ford ,Hatchback,Focus,2017,16178,160@6500,"146 @ 4,500",8.5,179 ft,0.83 g,29,25,34,9.74,11.30,8.31
+Subaru ,Sedan,Impreza,2017,19995,152 hp @ 6000 rpm,145 lb-ft @ 4000 rpm,8.4,170 ft,0.82 g,26,23,31,10.87,12.28,9.11
+Fiat ,Hatchback,500,2018,16245,101 @ 6500,98 @ 4000,9.7,131 ft (60-0 mph),0.85 g (avg) (no skidpad data),24,31,38,11.77,9.11,7.43
+,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,
+Hyundai ,Hatchback,Santa Fe ,2018,28599,290 hp @ 6400 rpm,252 lb-ft @ 5200 rpm,7.3,178 ft,0.78 g,21,18,25,13.45,15.69,11.30
+Ford ,Hatchback,Escape,2017,26199,245 hp @ 5500 rpm,275 lb-ft @ 3000 rpm,7.1,184 ft,0.85 g,25,21,29,11.30,13.45,9.74
+Kia ,Hatchback,Sportage,2017,25095,237 hp @ 6000 rpm,260 lb-ft @ 1450 rpm,6.9,174 ft,0.83 g,21,20,23,13.45,14.13,12.28
+Nissan ,Hatchback,Rogue,2017,26148,170 hp @ 6000 rpm,175 lb-ft @ 4400 rpm,9.1,178 ft,0.81 g,27,25,32,10.46,11.30,8.83
+Honda ,Hatchback,CRV AWD,2017,27090,190 hp @ 5600 rpm,179 lb-ft @ 2000 rpm,7.6,166 ft,0.82 g,29,27,33,9.74,10.46,8.56
+Toyota,Hatchback,RAV4 SE AWD,2016,27750,176 hp @ 6000 rpm,172 lb-ft @ 4100 rpm,8.4,184 ft,0.75 g,24,22,29,11.77,12.84,9.74
+,,,,,,,,,,,,,,,
+Acura ,Sedan,csx,2011,25790,155 hp @6000 rpm,139 ft-lb @4500 rpm,8.5 (0-100 km/h = approx. 62 mph),137.795 (no starting speed given),N/A,37.17,32.47,44.14,7.6,8.7,6.4
+Smart Fortwo,Coupe,Pure,2006,16700,40 @ 4200,73 @ 1800,22.4,120 (60-0 mph),0.69 (no skidpad data),67.26,61.41,74.34,4.2,4.6,3.8
