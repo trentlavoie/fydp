@@ -24,7 +24,6 @@ networkx==2.0
 notebook==5.2.1
 numpy==1.13.3
 pandas==0.21.0
-<<<<<<< HEAD
 pandocfilters==1.4.2
 parso==0.1.0
 pexpect==4.3.0
@@ -48,6 +47,4 @@ traitlets==4.3.2
 wcwidth==0.1.7
 webencodings==0.5.1
 widgetsnbextension==3.0.8
-=======
 numpy==1.13.3
->>>>>>> rec
