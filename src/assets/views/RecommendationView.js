@@ -479,7 +479,7 @@ export default class RecommendationView extends React.Component {
 
       return (
           <div>
-            <Navbar selectedIndex={2}/>
+            <Navbar selectedIndex={1}/>
             <div style = {backgroundStyle}>
               <div style = {{alignSelf: 'center', width: '1000px', height: '300px'}} >
                 {this.renderCurrentStep()}

@@ -370,7 +370,7 @@ export default class PortalView extends React.Component {
     render() {
         return (
           <div>
-            <Navbar selectedIndex={1}/>
+            <Navbar/>
             <div style = {{marginTop: '-5px', height: '1300px'}}>
             <Sidebar.Pushable as={Segment}>
             <Sidebar as={Menu} animation='slide along' visible={true} icon='labeled' vertical inverted>
