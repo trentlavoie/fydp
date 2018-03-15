@@ -52,13 +52,10 @@ def process_preference_data():
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
     budget = request.form['budget'];
-    print(budget)
     car_types = request.form['car_types']
-    print(car_types)
     preferences = json.loads(request.form['preferences'])
-    print(preferences)
     filter_preferences = []
-    print('here')
+
     for preference in preferences:
         parameters = {}
 

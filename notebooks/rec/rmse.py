@@ -84,6 +84,7 @@ def filter_cars(row, web_map=dict()):
 def find_car(models_file, driving_log, web_inputs, fuzzy_model):
     user_vector = generate_user_vec(driving_log, web_inputs, fuzzy_model)
     df = pd.read_csv(models_file).dropna()
+
     # Apply filtering
     df = df[df.apply(lambda x: filter_cars(x, web_inputs), axis=1)]
 #     df[df.apply(lambda x: x['b'] > x['c'], axis=1)]
