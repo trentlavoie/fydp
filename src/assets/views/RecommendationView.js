@@ -122,7 +122,7 @@ export default class RecommendationView extends React.Component {
             value: 5,
             colorValue: -1,
             selected: false,
-            clicked: 0
+            clicked: 2
           },
           {
             _id: 'Cost',
@@ -277,7 +277,6 @@ export default class RecommendationView extends React.Component {
           this.setState({currentStep: this.state.currentStep + 1})
         } else if (this.state.currentStep === 4) {
           this.postPreferenceData();
-          this.context.router.push('/portal');
         }
       }
 
@@ -294,17 +293,33 @@ export default class RecommendationView extends React.Component {
         }
 
         var formData = new FormData();
+        var cache = []
         formData.append('file', this.refs.fileUpload.files[0])
         formData.append('budget', this.state.budgetAmount);
-        formData.append('location', this.state.location);
+        formData.append('preferences', JSON.stringify(this.state.preferences, function(key, value) {
+            if (typeof value === 'object' && value !== null) {
+                if (cache.indexOf(value) !== -1) {
+                    // Circular reference found, discard key
+                    return;
+                }
+                // Store value in our collection
+                cache.push(value);
+            }
+            return value;
+        }));
+        formData.append('car_types', JSON.stringify(selectedVehicleTypes))
 
         request
           .post('http://localhost:3001/process')
           .send(formData)
-          .end(function(err, res){
+          .end((err, res) => {
             if (err || !res.ok) {
               //alert('Oh no! error');
             } else {
+              this.context.router.push({
+                pathname: '/portal',
+                state: { list_of_cars: res.body.list_of_cars }
+              })
               //alert('yay got');
             }
           });

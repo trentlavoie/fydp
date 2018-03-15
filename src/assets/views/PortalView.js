@@ -41,14 +41,16 @@ const percentageFunction = (pct) => `${pct}% Match`;
 
 export default class PortalView extends React.Component {
 
-    constructor() {
-      super();
-
+    constructor(props) {
+      super(props);
+      console.log(this.props.location)
       this.state = {
         runId: 1,
         firstCardExpand: false,
         secondCardExpand: false,
-        thirdCardExpand: false
+        thirdCardExpand: false,
+        car_details: this.props.location.state && this.props.location.state.list_of_cars ? this.props.location.state.list_of_cars :
+        [{}]
       }
 
       this.handleClick = (evt, data) => {
@@ -69,7 +71,7 @@ export default class PortalView extends React.Component {
     }
 
     renderContentLayout() {
-
+      console.log(this.state)
       var chartDataCamaro = [
         {
           year:'2017M01',  total: 80

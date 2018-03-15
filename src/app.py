@@ -1,9 +1,13 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask_webpack import Webpack
 from werkzeug.serving import run_simple
 from werkzeug import secure_filename
 from flaskext.mysql import MySQL
 import os
+import sys
+import json
+sys.path.insert(0, '../notebooks/rec')
+from rmse import return_rmse
 
 webpack = Webpack()
 
@@ -38,13 +42,36 @@ webpack.init_app(app)
 @app.route('/<path:path>')
 def index(path):
     return render_template('index.jinja2')
+
 @app.route('/process', methods=['POST'])
 def process_preference_data():
+    filename = 'run_40.csv'
     if request != None and request.files != None and len(request.files) > 0:
         file = request.files['file'];
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    return 'Success Code or Error Code here'
+
+    budget = request.form['budget'];
+    print(budget)
+    car_types = request.form['car_types']
+    print(car_types)
+    preferences = json.loads(request.form['preferences'])
+    print(preferences)
+    filter_preferences = []
+    print('here')
+    for preference in preferences:
+        parameters = {}
+
+        if 'clicked' in preference:
+            parameters['car_attribute'] = preference['_id']
+            parameters['clicked'] = preference['clicked']
+            filter_preferences.append(parameters)
+
+    filter_data = preferences
+    list_of_cars = return_rmse(budget, 0, filename)
+    return jsonify(list_of_cars=list(list_of_cars))
+
+
 
 if __name__ == '__main__':
     run_simple('localhost', 3001, app, use_reloader=True, use_debugger=True)
