@@ -53,7 +53,47 @@ export default class PortalView extends React.Component {
         secondCardExpand: false,
         thirdCardExpand: false,
         car_details: this.props.location.state && this.props.location.state.list_of_cars ? this.props.location.state.list_of_cars :
-        [{}]
+        [
+          {
+            Body: 'Coupe',
+            Model: 'Camaro',
+            Brand: 'Chevrolet',
+            Year: '2018',
+            'FE-L100K-CMB': 30,
+            Price: 28000,
+            percent_match_norm: 75,
+            HP_value: 650,
+            Torque_value: 250,
+            details: 'http://www.chevrolet.ca/camaro-sports-car.html',
+            image: 'http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/performance/2018_camaro/01_images/intro/ca-2018-chevrolet-camaro-sports-car-mo-masthead-1480x551-01.jpg'
+          },
+          {
+            Body: 'Sedan',
+            Model: 'Malibu',
+            Brand: 'Chevrolet',
+            Year: '2017',
+            'FE-L100K-CMB': 50,
+            Price: 20000,
+            percent_match_norm: 85,
+            HP_value: 450,
+            Torque_value: 100,
+            details: 'http://www.chevrolet.ca/malibu-mid-size-sedan.html',
+            image: 'http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/cars/2017_malibu/01_images/ca-2017-chevrolet-malibu-mid-size-sedan-mo-01_perspective_img_1.jpg'
+          },
+          {
+            Body: 'Sedan',
+            Model: 'Impala',
+            Brand: 'Chevrolet',
+            Year: '2017',
+            'FE-L100K-CMB': 25,
+            Price: 30000,
+            percent_match_norm: 65,
+            HP_value: 550,
+            Torque_value: 300,
+            details: 'http://www.chevrolet.ca/impala-full-size-car.html',
+            image: 'http://www.chevrolet.ca/content/dam/Chevrolet/northamerica/ca/nscwebsite/en/home/vehicles/cars/2017_impala/01_images/ca-2017-chevrolet-impala-full-size-sedan-intro-1480x551-01.jpg'
+          }
+      ]
       }
 
       this.handleClick = (evt, data) => {
