@@ -273,9 +273,9 @@ export default class RecommendationView extends React.Component {
       }
 
       this.incrementStepCounter = () => {
-        if (this.state.currentStep !== 4 ) {
+        if (this.state.currentStep !== 3) {
           this.setState({currentStep: this.state.currentStep + 1})
-        } else if (this.state.currentStep === 4) {
+        } else if (this.state.currentStep === 3) {
           this.postPreferenceData();
         }
       }
@@ -308,9 +308,9 @@ export default class RecommendationView extends React.Component {
             return value;
         }));
         formData.append('car_types', JSON.stringify(selectedVehicleTypes))
-
+        var full = location.protocol+'//'+location.hostname+(location.port ? ':'+location.port: '');
         request
-          .post('http://localhost:3001/process')
+          .post(full + '/process')
           .send(formData)
           .end((err, res) => {
             if (err || !res.ok) {
@@ -448,51 +448,6 @@ export default class RecommendationView extends React.Component {
       } else if (this.state.currentStep === 3) {
 
         return (
-          <div style = {distanceContainer} > 
-            <FontIcon className="material-icons" style = {fontIconStyle}>near_me</FontIcon>
-            <div style = {{marginTop: '-100px'}}>
-              <span style = {headerFont}>Travelling Distance</span>
-            </div>
-            <Paper style={style} zDepth={this.state.selectedDistanceTravelled === 1 ? 5 : 1}>
-              <div id="1" style = {inlinePaperDivStyle} onClick={this.distanceTravelClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
-                <div>0-20 KM</div>
-              </div>
-            </Paper>
-            <Paper style={style} zDepth={this.state.selectedDistanceTravelled === 2 ? 5 : 1}>
-              <div id="2" style = {inlinePaperDivStyle} onClick={this.distanceTravelClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
-                <div>20-40 KM</div>
-              </div>
-            </Paper>
-            <Paper style={style} zDepth={this.state.selectedDistanceTravelled === 3 ? 5 : 1}>
-              <div id="3" style = {inlinePaperDivStyle} onClick={this.distanceTravelClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
-                <div>40-60 KM</div>
-              </div>
-            </Paper>
-            <Paper style={style} zDepth={this.state.selectedDistanceTravelled === 4 ? 5 : 1}>
-              <div id="4" style = {inlinePaperDivStyle} onClick={this.distanceTravelClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
-                <div>60-80 KM</div>
-              </div>
-            </Paper>
-            <Paper style={style} zDepth={this.state.selectedDistanceTravelled === 5 ? 5 : 1}>
-              <div id="5" style = {inlinePaperDivStyle} onClick={this.distanceTravelClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
-                <div>80-100 KM</div>
-              </div>
-            </Paper>
-            <Paper style={style} zDepth={this.state.selectedDistanceTravelled === 6 ? 5 : 1}>
-              <div id="6" style = {inlinePaperDivStyle} onClick={this.distanceTravelClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://i.stack.imgur.com/gYVtH.png"></img>
-                <div>>100 KM</div>
-              </div>
-            </Paper>
-          </div>
-        )
-      } else if (this.state.currentStep === 4) {
-        return (
           <div style = {centerContainer}> 
             <FontIcon className="material-icons" style = {{fontSize: '80px'}}>file_upload</FontIcon>
             <div>
@@ -535,8 +490,8 @@ export default class RecommendationView extends React.Component {
                   <RaisedButton label={this.state.currentStep !== 5 ? 'Next Step' : 'Finish'} secondary={true} onClick = {this.incrementStepCounter}/>
                 </div>
                 <div style = {{paddingTop: '100px', textAlign: 'center'}}>
-                  <LinearProgress mode="determinate" value={(this.state.currentStep + 1) * 20 } />
-                  <span style = {progressFont} >Step {this.state.currentStep + 1} out of 5 completed</span>
+                  <LinearProgress mode="determinate" value={(this.state.currentStep + 1) * 25 } />
+                  <span style = {progressFont} >Step {this.state.currentStep + 1} out of 4 completed</span>
                 </div>
               </div>
             </div>
