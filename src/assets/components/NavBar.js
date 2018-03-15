@@ -18,11 +18,10 @@ export default class Navbar extends React.Component {
       }
 
       this.onTabChange = (value) => {
-        if (value === 1) {
-          this.context.router.push('/portal');
-        } else if (value === 0) {
+
+        if (value === 0) {
           this.context.router.push('/');
-        } else if (value === 2) {
+        } else if (value === 1) {
           this.context.router.push('/recommend');
         }
       }
@@ -39,8 +38,7 @@ export default class Navbar extends React.Component {
             <div style = {{marginLeft: '70px'}}>
               <Tabs value ={this.state.selectedIndex} onChange={this.onTabChange}>
                 <Tab label="Home" value = {0}/>
-                <Tab label="Portal" value = {1}/>
-                <Tab label="Survey" value = {2}/>
+                <Tab label="Survey" value = {1}/>
               </Tabs>
             </div>
             </div>
