@@ -79,7 +79,10 @@ def filter_cars(row, web_map=dict()):
         cond3 = False
     elif fuel_pref == 3 and row.FuelEconomy < 2:
         cond3 = False
-    return cond1 & cond2 & cond3
+    cond4 = False
+    if row['Body'] in set(web_map.get('body_types', ['Sedan'])):
+        cond4 = True
+    return cond1 & cond2 & cond3 & cond4
 
 def find_car(models_file, driving_log, web_inputs, fuzzy_model):
     user_vector = generate_user_vec(driving_log, web_inputs, fuzzy_model)
@@ -95,12 +98,13 @@ def find_car(models_file, driving_log, web_inputs, fuzzy_model):
     df['percent_match_norm'] = df.apply(lambda x: (5 - x.rmse_score + rmse_norm_factor) * 20, axis=1)
     return df.sort_values(by=['rmse_score'])
 
-def return_rmse(price, fuel_economy, data_file_name='run_40.csv'):
+def return_rmse(price, fuel_economy, data_file_name='run_40.csv', car_body=['Sedan', 'Coupe']):
 
     web_mapping = {
         'price_min': 0,
-        'price_max': 40000,
+        'price_max': int(price),
         'fuel_economy': 1, # 1,2,3
+        'body_types': car_body,
     }
 
     with open('models/fuzzy_models.p', 'rb') as handle:

@@ -62,7 +62,9 @@ def process_preference_data():
         if 'clicked' in preference:
             parameters['car_attribute'] = preference['_id']
             parameters['clicked'] = preference['clicked']
+            parameters['car_types'] = car_types
             filter_preferences.append(parameters)
+            print(parameters)
 
     filter_data = preferences
     list_of_cars = return_rmse(budget, 0, filename)
