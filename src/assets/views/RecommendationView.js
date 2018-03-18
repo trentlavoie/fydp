@@ -259,7 +259,7 @@ export default class RecommendationView extends React.Component {
 
         var selectedVehicleTypes = [];
 
-        if (this.state.selectedCarType.indexOf(1) >= 0) {
+        if (this.state.selectedCarType.indexOf(1) >= 0 || !this.state.selectedCarType.length) {
           selectedVehicleTypes = vehicleTypes;
         } else {
           this.state.selectedCarType.forEach((carIndex) => {
