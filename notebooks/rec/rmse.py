@@ -4,6 +4,7 @@ from math import sqrt
 # Imports
 import os
 import pickle
+import json
 import pandas as pd
 from datetime import datetime
 import numpy as np
@@ -80,8 +81,12 @@ def filter_cars(row, web_map=dict()):
     elif fuel_pref == 3 and row.FuelEconomy < 2:
         cond3 = False
     cond4 = False
+    # print(row['Body'], str(web_map.get('body_types')))
+
     if row['Body'] in set(web_map.get('body_types', ['Sedan'])):
         cond4 = True
+    # print (row['Body'])
+    # print (web_map.get('body_types', ['Sedan']))
     return cond1 & cond2 & cond3 & cond4
 
 def find_car(models_file, driving_log, web_inputs, fuzzy_model):
@@ -103,9 +108,10 @@ def return_rmse(price, fuel_economy, data_file_name='run_40.csv', car_body=['Sed
     web_mapping = {
         'price_min': 0,
         'price_max': int(price),
-        'fuel_economy': 1, # 1,2,3
-        'body_types': car_body,
+        'fuel_economy': fuel_economy, # 1,2,3
+        'body_types': json.loads(car_body),
     }
+    print(car_body, fuel_economy)
 
     with open('models/fuzzy_models.p', 'rb') as handle:
         fuzzy_models = pickle.load(handle)

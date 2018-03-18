@@ -56,16 +56,19 @@ def process_preference_data():
     preferences = json.loads(request.form['preferences'])
     filter_preferences = []
 
+    gas = 0
     for preference in preferences:
         parameters = {}
-
         if 'clicked' in preference:
             parameters['car_attribute'] = preference['_id']
             parameters['clicked'] = preference['clicked']
             parameters['car_types'] = car_types
             filter_preferences.append(parameters)
+            if parameters['car_attribute'] == 'Fuel  Economy':
+                gas = parameters['clicked']
 
-    list_of_cars = return_rmse(budget, 0, filename, car_types)
+    print(filter_preferences)
+    list_of_cars = return_rmse(budget, gas, filename, car_types)
     return jsonify(list_of_cars=list(list_of_cars))
 
 
