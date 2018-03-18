@@ -348,7 +348,7 @@ export default class RecommendationView extends React.Component {
             </div>
             <Slider
               min={15000}
-              max={50000}
+              max={75000}
               defaultValue={20000}
               step={5000}
               value={this.state.budgetAmount}
