@@ -55,7 +55,7 @@ def process_preference_data():
     car_types = request.form['car_types']
     preferences = json.loads(request.form['preferences'])
     filter_preferences = []
-    print(car_types)
+
     for preference in preferences:
         parameters = {}
 
@@ -65,7 +65,6 @@ def process_preference_data():
             parameters['car_types'] = car_types
             filter_preferences.append(parameters)
 
-    filter_data = preferences
     list_of_cars = return_rmse(budget, 0, filename, car_types)
     return jsonify(list_of_cars=list(list_of_cars))
 
