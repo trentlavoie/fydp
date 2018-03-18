@@ -94,10 +94,9 @@ const imageStyle = {
 
 const vehicleTypes = [
   'Sedan',
-  'Hatch',
-  'Truck',
-  'Wat',
-  'Face'
+  'Hatchback',
+  'SUV',
+  'Coupe'
 ]
 
 const fontIconStyle = {
@@ -288,7 +287,7 @@ export default class RecommendationView extends React.Component {
           selectedVehicleTypes = vehicleTypes;
         } else {
           this.state.selectedCarType.forEach((carIndex) => {
-            selectedVehicleTypes.push(vehicleTypes[carIndex]);
+            selectedVehicleTypes.push(vehicleTypes[carIndex-2]);
           })
         }
 
@@ -388,7 +387,6 @@ export default class RecommendationView extends React.Component {
             <div style = {{marginTop: '-100px'}}>
               <span style = {headerFont}>Car Type</span>
             </div>
-
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(1) >= 0 ? 5 : 1}>
               <div id="1" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/48/48688.svg"></img>
@@ -415,32 +413,8 @@ export default class RecommendationView extends React.Component {
             </Paper>
             <Paper style={style} zDepth={this.state.selectedCarType.indexOf(5) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
               <div id="5" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "images/crossover.png"></img>
-                <div>Crossover</div>
-              </div>
-            </Paper>
-            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(6) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
-              <div id="6" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/55/55349.svg"></img>
-                <div>Van</div>
-              </div>
-            </Paper>
-            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(7) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
-              <div id="7" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
                 <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/55/55180.svg"></img>
                 <div>Coupe</div>
-              </div>
-            </Paper>
-            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(8) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
-              <div id="8" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/55/55195.svg"></img>
-                <div>Convertible</div>
-              </div>
-            </Paper>
-            <Paper style={style} zDepth={this.state.selectedCarType.indexOf(9) >= 0 || this.state.selectedCarType.indexOf(1) >= 0  ? 5 : 1}>
-              <div id="9" style = {inlinePaperDivStyle} onClick={this.carTypeClicked}>
-                <img width={50} height={50} style = {imageStyle} src = "https://image.flaticon.com/icons/svg/46/46007.svg"></img>
-                <div>Truck</div>
               </div>
             </Paper>
           </div>
