@@ -93,8 +93,8 @@ const imageStyle = {
 }
 
 const vehicleTypes = [
-  'Sedan',
   'Hatchback',
+  'Sedan',
   'SUV',
   'Coupe'
 ]
