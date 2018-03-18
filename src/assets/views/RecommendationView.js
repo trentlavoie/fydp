@@ -142,30 +142,6 @@ export default class RecommendationView extends React.Component {
             selected: false
           },
           {
-            _id: 'Brand',
-            value: 5,
-            colorValue: -1,
-            selected: false
-          },
-          {
-            _id: 'Off-Roading',
-            value: 5,
-            colorValue: -1,
-            selected: false
-          },
-          {
-            _id: 'Resale Value',
-            value: 5,
-            colorValue: -1,
-            selected: false
-          },
-          {
-            _id: 'Safety',
-            value: 5,
-            colorValue: -1,
-            selected: false
-          },
-          {
             _id: 'Performance',
             value: 5,
             colorValue: -1,
@@ -347,7 +323,7 @@ export default class RecommendationView extends React.Component {
               <span style=  {headerFont}>Budget</span>
             </div>
             <Slider
-              min={15000}
+              min={20000}
               max={75000}
               defaultValue={20000}
               step={5000}
