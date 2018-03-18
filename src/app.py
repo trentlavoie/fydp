@@ -67,7 +67,7 @@ def process_preference_data():
             print(parameters)
 
     filter_data = preferences
-    list_of_cars = return_rmse(budget, 0, filename)
+    list_of_cars = return_rmse(budget, 0, filename, car_types)
     return jsonify(list_of_cars=list(list_of_cars))
 
 
