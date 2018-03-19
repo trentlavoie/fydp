@@ -57,6 +57,9 @@ def process_preference_data():
     filter_preferences = []
 
     gas = 0
+    cost = 0
+    handling = 0
+    performance = 0
     for preference in preferences:
         parameters = {}
         if 'clicked' in preference:
@@ -66,9 +69,16 @@ def process_preference_data():
             filter_preferences.append(parameters)
             if parameters['car_attribute'] == 'Fuel  Economy':
                 gas = parameters['clicked']
+            if parameters['car_attribute'] == 'Cost':
+                cost = parameters['clicked']
+            if parameters['car_attribute'] == 'Performance':
+                performance = parameters['clicked']
+            if parameters['car_attribute'] == 'Handling':
+                handling = parameters['clicked']
 
-    print(filter_preferences)
-    list_of_cars = return_rmse(budget, gas, filename, car_types)
+
+    # print(filter_preferences)
+    list_of_cars = return_rmse(budget, gas, filename, car_types, performance, handling, cost)
     return jsonify(list_of_cars=list(list_of_cars))
 
 

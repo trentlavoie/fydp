@@ -21,10 +21,10 @@ class flModel:
                                                          ]) for f in f_names))
         df['time'] = (df.date - df.date.iloc[0])
         df['time_diff'] = df.time.diff()
-        df['speed'] = df.speed.str.replace(' kph','')
-        df['engine_load'] = df.engine_load.str.replace(' percent', '')
-        df['throttle'] = df.throttle.str.replace(' percent', '')
-        df['rpm'] = df.rpm.str.replace(' revolutions_per_minute', '')
+        df['speed'] = df.speed.astype(str).str.replace(' kph','')
+        df['engine_load'] = df.engine_load.astype(str).str.replace(' percent', '')
+        df['throttle'] = df.throttle.astype(str).str.replace(' percent', '')
+        df['rpm'] = df.rpm.astype(str).str.replace(' revolutions_per_minute', '')
 
         obd2_cols = ['speed', 'engine_load', 'throttle', 'rpm']
         for col in obd2_cols:
