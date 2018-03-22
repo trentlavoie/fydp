@@ -136,7 +136,7 @@ export default class RecommendationView extends React.Component {
             selected: false
           },
           {
-            _id: 'Comfort',
+            _id: 'Safety',
             value: 5,
             colorValue: -1,
             selected: false
